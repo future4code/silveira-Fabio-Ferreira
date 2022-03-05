@@ -54,22 +54,48 @@
 // - **Exercícios de escrita de código**
 //1. Pergunte ao usuário quantos bichinhos de estimação ele tem e guarde esse dado em uma variável. 
 
-let numeroPets = +prompt("Quantos pets você tem?")
+const numeroPets = Number(prompt(" Quantos pets você tem?"))
+nomePet = []
+// a) Se a quantidade for 0, imprima no console "Que pena! Você pode adotar um pet!"
 
-//a) Se a quantidade for 0, imprima no console "Que pena! Você pode adotar um pet!"
-
-if (numeroPets == 0) {
-    console.log("Que pena! Você pode adotar um pet!")
+if (numeroPets == 0){
+    console.log("você pode adotar um pet!")
 }
 
-//b) Se a quantidade for maior que 0, solicite que o usuário digite os nomes deles, um por um, e guarde esses nomes em um array
-else if (numeroPets !== 0) {
-    while(numero !== 0){
-        nomePet = prompt("Digite o nome dos pets, caso não haja mais nenhum digite 0")
+// b) Se a quantidade for maior que 0, solicite que o usuário digite os nomes deles, um por um, e guarde esses nomes em um array
+else{
+
+for(let i = 1; i <= numeroPets; i++ ){
+    let nomes = prompt("Qual nome do pet?")
+    nomePet.push(nomes)
+}
+}
+console.log(nomePet)
+
+
+// 2. Considere que você tenha acesso a um `array`  (chamado de 'array original') que é composto somente de números. Baseando-se nisso, crie uma função para cada um dos itens abaixo, realizando as operações pedidas:
+    let arrayOriginal = [10, 20, 30, 40, 50]
+//a) Escreva um programa que **imprime** cada um dos valores do array original.
+
+for(let i = 0; i < arrayOriginal.length; i++){
+    let item = arrayOriginal[i]
+    console.log(item)
+}
+
+// b) Escreva um programa que imprime cada um dos valores do array original divididos por 10
+
+for(let i = 0; i < arrayOriginal.length; i++){
+    let itemDividido = arrayOriginal[i] / 10
+    console.log(itemDividido)
+}
+
+// c) Escreva um programa que crie um novo array contendo, somente, os números pares do array original e imprima esse novo array
+
+for(let i = 0; i < arrayOriginal.length; i++){
+    let itemPar = arrayOriginal[i] % 2
+    let arrayPar = []
+    if(itemPar === 0){
+        arrayPar.push(itemPar)
     }
+    console.log(arrayPar)
 }
-
-//c) Por fim, imprima o array com os nomes dos bichinhos no console
-
-let todosNomes = todosNomes + nomePet
-console.log(`O nome dos seus pets são ${todosNomes}`)
