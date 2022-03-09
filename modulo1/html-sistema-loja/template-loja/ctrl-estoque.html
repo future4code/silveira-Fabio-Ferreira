@@ -5,65 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Controle de Estoque</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div>
-        <p>Nome da lojinha</p>
+        <h1 class="titulo">Mangás</h1>
     </div>
     
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+    <div id="paginas">
+        <a class="linkPage" href="index.html">Página Inicial</a>
+        <a class="linkPage" href="ctrl-estoque.html">Controle de Estoque</a>
+        <a class="linkPage" href="add-produto.html">Adicionar Produto</a>
+        <a class="linkPage" href="funcionarios.html">Funcionários</a>
     </div>
 
-    <h2>Controle de Estoque</h2>
+    <h2 class="titulo">Controle de Estoque</h2>
+    <table id="tabela">
 
-    <table>
         <tr>
-            <th>Foto</th>
-            <th>Descrição</th>
-            <th>Preço (R$)</th>
-            <th>Quantidade disponível</th>
+            <th class="linha">Foto</th>
+            <th class="linha">Descrição</th>
+            <th class="linha">Preço (R$)</th>
+            <th class="linha">Quantidade disponível</th>
         </tr>
 
         <tr>
-            <td><img src="../template-loja/img/Jujutsu.jpg" alt="Jujutsu mangá"/></td>
-            <td> Jujutsu Kaisen </td>
-            <td> (R$) 24,99 </td>
-            <td> 100 </td>
+            <td><img class="capaManga" src="../template-loja/img/Jujutsu.jpg" alt="Jujutsu mangá"/></td>
+            <td class="nomeManga"> Jujutsu Kaisen </td>
+            <td class="preco"> (R$) 24,99 </td>
+            <td class="quantidade"> 100 </td>
         </tr>
-
+    
         <tr>
-            <td><img src="../template-loja/img/beastar.jpg" alt="Beastar mangá"/></td>
-            <td> Beastar </td>
-            <td> (R$) 29,99 </td>
-            <td> 100 </td>
+            <td><img class="capaManga" src="../template-loja/img/beastar.jpg" alt="Beastar mangá"/></td>
+            <td class="nomeManga"> Beastar </td>
+            <td class="preco"> (R$) 29,99 </td>
+            <td class="quantidade"> 100 </td>
         </tr>
-
+    
         <tr>
-            <td><img src="../template-loja/img/kimestu.jpg" alt="Kimetsu no yaiba mangá"/></td>
-            <td> kimetsu no yaiba </td>
-            <td> (R$) 24,99 </td>
-            <td> 100 </td>
+            <td><img class="capaManga" src="../template-loja/img/kimestu.jpg" alt="Kimetsu no yaiba mangá"/></td>
+            <td class="nomeManga"> kimetsu no yaiba </td>
+            <td class="preco"> (R$) 24,99 </td>
+            <td class="quantidade"> 100 </td>
         </tr>
-
+    
         <tr>
-            <td><img src="../template-loja/img/OnePiece.jpg" alt="One piece mangá"/></td>
-            <td> One Piece </td>
-            <td> (R$) 21,99 </td>
-            <td> 100 </td>
+            <td><img class="capaManga" src="../template-loja/img/OnePiece.jpg" alt="One piece mangá"/></td>
+            <td class="nomeManga"> One Piece </td>
+            <td class="preco"> (R$) 21,99 </td>
+            <td class="quantidade"> 100 </td>
         </tr>
-        
+    
         <!-- Crie mais uma linha desta tabela abaixo \/ -->
+    
         <tr>
-            <td><img src="../template-loja/img/bokuNoHero.jpg" alt="Boku no hero mangá"></td>
-            <td> Boku no Hero</td>
-            <td> (R$) 21,99</td>
-            <td> 100 </td>
+            <td><img class="capaManga" src="../template-loja/img/bokuNoHero.jpg" alt="Boku no hero mangá"></td>
+            <td class="nomeManga"> Boku no Hero</td>
+            <td class="preco"> (R$) 21,99</td>
+            <td class="quantidade"> 100 </td>
         </tr>
-    </table>
 
+    </table>
 </body>
 </html>

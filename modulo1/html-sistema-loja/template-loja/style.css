@@ -1,0 +1,59 @@
+* {
+    background-color: lightgray;
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+}
+
+.capaManga{
+    height: 175px;
+}
+.nomeManga{
+    padding-left: 90px;
+    font-size:22px;
+}
+.preco{
+    padding-left: 10px ;
+    font-size: 22px;
+}
+.quantidade{
+    padding-left: 50px;
+    font-size: 22px;
+}
+#tabela{
+    display: inline;
+    margin-left: 32%;
+    margin-right: 35%;
+}
+.titulo{
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+.linkPage{
+    display: inline;
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+.linha{
+    padding-bottom: 5%;
+}
+#facebookLogo{
+    display: inline;
+    height: 50px;
+    padding-left: 43%;
+}
+#instagramLogo{
+    display: inline;
+    height: 50px;
+}
+#twitterLogo{
+    display: inline;
+    height: 50px;
+}
+#funcionarios{
+    text-align: center;
+}
+#addProduto{
+    text-align: center;
+}
