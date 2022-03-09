@@ -96,10 +96,4 @@ console.log(doguinhosSalsicha)
         
 })
 
-const callback = pets.map((item, indice, array) => {
-    if (item.raca === "Poodle") {
-        return item.nome
-      
-    }
-    return item.nome
-})
+
