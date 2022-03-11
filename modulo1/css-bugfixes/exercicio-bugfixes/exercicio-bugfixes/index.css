@@ -10,6 +10,7 @@
 }
 
 h2 {
+    font-family: Roboto;
     background-color: #fe7e02;
     padding-bottom: 10px;
     color: white;
@@ -54,6 +55,7 @@ div img {
 }
 
 .container {
+    font-family: Roboto;
     height: 400px;
     text-align: center;
 }
@@ -85,6 +87,7 @@ div img {
 }
 
 #container-para-comprar>p {
+    font-family: Roboto;
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
@@ -115,6 +118,7 @@ td button {
 }
 
 .container-do-search {
+    font-family: Roboto;
     text-align: center;
     margin-top: 20px;
     height: 100px;
@@ -122,6 +126,7 @@ td button {
 
 
 #back-button {
+    font-family: Roboto;
     display: block;
     margin: auto;
     margin-top: 200px;
@@ -137,6 +142,7 @@ td button {
 #back-button:hover {
     display: block;
     margin: auto;
+    margin-top: 200px;
     background-color: #635a3d
 }
 table{
