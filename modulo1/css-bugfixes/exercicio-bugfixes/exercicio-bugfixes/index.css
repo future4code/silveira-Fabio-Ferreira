@@ -143,3 +143,10 @@ table{
     margin:auto;
     padding-left: 8%;
 }
+
+td button:hover {
+    background-color: #ebc82a;
+}
+td button:active {
+    color: white;
+}
