@@ -1,0 +1,37 @@
+*{  margin: 0;
+    padding: 0;
+    font-family: 'Fredoka', sans-serif;
+    background-color: gray;
+}
+.imageFooter{
+    margin-left: 40px;
+    width: 50px;
+}
+#sobreMim{
+    padding-top: 70px;
+    color: white;
+    background-color: gray;
+    background-color: gray;
+}
+#rodape{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+#cabeçalho{
+    background-color: rgb(77, 73, 73);
+    text-align: center;
+}
+.botão{
+    color: white;
+    background-color: rgb(77, 73, 73);
+    margin-left: 100px;
+}
+.botão:hover{
+    color: rgb(218, 61, 61);
+}
+#sobre{
+    padding-top: 30px;
+}
