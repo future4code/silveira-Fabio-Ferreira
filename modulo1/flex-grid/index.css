@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+#bolinho{
+    height: 20px;
+    margin-left: 1.5%;
+
+}
+
+#header{
+    display: flex;
+    background-color: rgb(202, 50, 113);
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0, 10px;
+}
+
+#titulo{
+    display: flex;
+    margin-right: 1670px
+}
+
+#botao{
+    margin-right: 1.5%;
+    padding:3px;
+}
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+main > nav{
+    background-color: rgb(228, 142, 209);
+    width: 300px;
+
+}
+
+nav > img{
+    height: 20px;
+}
+
+.bolo{
+    height: 300px;
+}
+
+main > div{
+    border: black;
+}
+
+footer{
+    background-color: rgb(202, 50, 113);
+    text-align: center;
+    height: 100px;
+}
