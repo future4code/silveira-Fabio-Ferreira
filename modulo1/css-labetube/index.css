@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration-line: none;
+}
+
+body{
+    text-decoration: none;
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    height: 100vh;
+    font-family: 'Fredoka', sans-serif;
+}
+
+header{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(255, 198, 93);
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header h1{
+    color: rgb(99, 94, 94);
+    font-size: 1.7rem;
+}
+
+header h1:hover{
+    color: white;
+}
+
+header h1:active{
+    color:black
+}
+
+header input{
+    padding: 10px;
+}
+
+#containerHome{
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding-top:15px;
+}
+
+#containerHome div{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-color: rgb(37, 36, 36);
+    background-color: rgb(37, 36, 36);
+    color: rgb(163, 157, 157);
+    margin-bottom: 15px;
+}
+
+#containerHome p{
+    color: rgb(163, 157, 157);
+    text-align: center;
+    padding: 15px;
+    font-size: 1.5rem;
+}
+
+#containerHome p:hover{
+    color:white;
+}
+
+#containerHome p:active{
+    color:black;
+}
+
+div img{    
+    width: 100%;
+    height: 200px;
+}
+
+header > input{
+    border-style: none;
+}
+
+footer{
+    color: rgb(163, 157, 157);
+    display: flex;
+    background-color: rgb(37, 36, 36);
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.containerVideo{
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.containerVideo div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55%
+}
+
+.containerVideo video{
+    width: 100%;
+}
