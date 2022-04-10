@@ -6,7 +6,7 @@ class App extends React.Component{
   state = {
     telaAtual: "CriarPlaylist"
   }
-
+//função que muda a tela baseado no state
   mudarTela = () => {
     switch (this.state.telaAtual){
       case "CriarPlaylist":
@@ -17,11 +17,11 @@ class App extends React.Component{
         return <div>Ops, algo deu errado!</div>
     }
   }
-
+//muda para o menu de criação
   irCriacao = () => {
     this.setState({telaAtual: "CriarPlaylist"})
   }
-
+//muda para playlists
   irParaPlaylists = () => {
     this.setState({telaAtual: "ListaDePlaylist"})
   }
