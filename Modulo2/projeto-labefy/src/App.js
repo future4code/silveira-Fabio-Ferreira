@@ -1,37 +1,49 @@
 import React from "react";
-import CriarPlaylist from "./components/CriarPlaylist";
-import ListaDePlaylist from "./components/ListaDePlaylist";
+import Playlists from "./components/Playlists";
+import InfosPlaylists from "./components/InfosPlaylists";
+import { createGlobalStyle } from 'styled-components'
 
-class App extends React.Component{
-  state = {
-    telaAtual: "CriarPlaylist"
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-//função que muda a tela baseado no state
+`
+
+
+class App extends React.Component {
+  state = {
+    telaAtual: "Playlists"
+  }
+
   mudarTela = () => {
     switch (this.state.telaAtual){
-      case "CriarPlaylist":
-        return <CriarPlaylist irCriacao={this.irCriacao} />
-      case "ListaDePlaylist":
-        return <ListaDePlaylist irParaPlaylists={this.irParaPlaylists} />
+      case "Playlists":
+        return <Playlists irInfos={this.irInfos} />
+      case "infos":
+        return <InfosPlaylists irPlaylists={this.irPlaylists} />
       default:
-        return <div>Ops, algo deu errado!</div>
+        return <div>Erro! Página não encontrada!</div>
     }
   }
-//muda para o menu de criação
-  irCriacao = () => {
-    this.setState({telaAtual: "CriarPlaylist"})
+
+  irPlaylists = () => {
+    this.setState({telaAtual: "Playlists"})
   }
-//muda para playlists
-  irParaPlaylists = () => {
-    this.setState({telaAtual: "ListaDePlaylist"})
+
+  irInfos = () => {
+    this.setState({telaAtual: "infos"})
   }
 
   render(){
-
     return (
+
       <div>
         {this.mudarTela()}
       </div>
+
     );
 
   }
