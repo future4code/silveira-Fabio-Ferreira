@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CriarPlaylist from "./components/CriarPlaylist";
+import ListaDePlaylist from "./components/ListaDePlaylist";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  state = {
+    telaAtual: "CriarPlaylist"
+  }
+
+  mudarTela = () => {
+    switch (this.state.telaAtual){
+      case "CriarPlaylist":
+        return <CriarPlaylist irCriacao={this.irCriacao} />
+      case "ListaDePlaylist":
+        return <ListaDePlaylist irParaPlaylists={this.irParaPlaylists} />
+      default:
+        return <div>Ops, algo deu errado!</div>
+    }
+  }
+
+  irCriacao = () => {
+    this.setState({telaAtual: "CriarPlaylist"})
+  }
+
+  irParaPlaylists = () => {
+    this.setState({telaAtual: "ListaDePlaylist"})
+  }
+
+  render(){
+
+    return (
+      <div>
+        {this.mudarTela()}
+      </div>
+    );
+
+  }
 }
 
 export default App;
