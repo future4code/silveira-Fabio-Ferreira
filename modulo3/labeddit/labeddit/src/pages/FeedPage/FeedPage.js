@@ -1,21 +1,14 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../../constants/urls';
+import useForm from '../../hooks/useForm';
 import { goToDetalhes } from '../../routes/Coordinator';
-import { getPostComentsFunction } from '../../services/getPostComentsFunction';
+import { createPostFunction } from '../../services/createPostFunction';
 import { getPostFunction } from '../../services/getPostFunction';
 import { CardPost } from './CardPost';
 
 export const FeedPage = () => {
     const [post, setPost] = useState();
-    const [coment, setComent] = useState();
-
-    
-
-    // const goDetail = () => {
-    //     getPostComentsFunction(setComent, postList.id)
-    // }
+    const [form, handleInputChange] = useForm({title:'', body:''})
 
     const navigate = useNavigate();
 
@@ -23,11 +16,11 @@ export const FeedPage = () => {
         getPostFunction(setPost);        
     }, [])
 
-//----------------------------------------------------------------------------------
+//--------------------------------------------------------------------//
     const getComent = (id) => {
         goToDetalhes(navigate, id)
     }
-
+//--------------------------------------------------------------------//
     const postList = post && post.map((item)=>{
         return(
             <CardPost
@@ -39,12 +32,30 @@ export const FeedPage = () => {
         )
     })
 
+    const onSubmit = (e) => {
+        e.preventDefault()
+        createPostFunction(form)
+    }
+
     return(
         <div>
             <h1>Feed Page</h1>
             <div>
-                <input placeholder='Titulo do Post'/>
-                <input placeholder='Create Post'/>
+                <form onSubmit={onSubmit} >
+                    <input
+                     name='title'
+                     value={form.title}
+                     onChange={handleInputChange}
+                     placeholder='Titulo do Post'
+                     />
+                    <input
+                     name='body'
+                     value={form.body}
+                     onChange={handleInputChange}
+                     placeholder='Escreva algo'
+                     />
+                    <button type='submit'>Publicar</button>
+                </form>                
             </div>
             {postList}
         </div>

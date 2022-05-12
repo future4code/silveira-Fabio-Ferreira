@@ -23,6 +23,7 @@ export const LoginPage = () => {
                  onChange={handleInputChange}
                  placeholder='email'/>
                 <input
+                 type='password'
                  name='password'
                  value={form.password}
                  onChange={handleInputChange}

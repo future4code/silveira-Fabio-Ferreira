@@ -1,18 +1,17 @@
 import axios from "axios"
 import { BASE_URL } from "../constants/urls"
 
-export const getPostComentsFunction = (id, setComents) => {
+export const createPostFunction = (body) => {
     const token = localStorage.getItem('token')
-    axios.get(`${BASE_URL}posts/${id}/comments`,{
+    axios.post(`${BASE_URL}posts`, {
         headers: {
             'Authorization': `${token}`
         }
-    })
+    }, body)
     .then((res)=>{
-        console.log(res)
-        setComents(res.data)
+        console.log('deu certo', res)
     })
     .catch((err)=>{
-        console.log(err)
+        // console.log('deu errado', err)
     })
 }
