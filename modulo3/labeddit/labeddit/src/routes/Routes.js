@@ -10,8 +10,8 @@ export const Router = () => {
     return(
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<FeedPage />} />
-                <Route path='/login' element={<LoginPage />} />
+                <Route path='/feed' element={<FeedPage />} />
+                <Route path='/' element={<LoginPage />} />
                 <Route path='/cadastro' element={<SingupPage />} />
                 <Route path='/detalhes/:id' element={<PostDetailPage />} />
                 <Route path='*' element={<ErrorPage />} />
