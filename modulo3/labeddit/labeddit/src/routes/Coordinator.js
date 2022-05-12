@@ -10,6 +10,6 @@ export const goTofeed = (navigate) => {
     navigate('/feed')
 }
 
-export const goToDetalhes = (navigate) => {
-    navigate('/detalhes/:id')
+export const goToDetalhes = (navigate, id) => {
+    navigate(`/detalhes/${id}`)
 }
