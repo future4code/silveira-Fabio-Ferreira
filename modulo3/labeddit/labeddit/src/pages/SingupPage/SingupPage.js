@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import { goToLogin } from '../../routes/Coordinator';
 import { singupFunction } from '../../services/singupFuncion';
+import { Header } from '../Header/Header';
 
-export const SingupPage = () => {
+export const SingupPage = ({nameButton, setNameButton}) => {
     const [form, handleInputChange] = useForm({username:'', email:'', password:''})
     const navigate = useNavigate();
 
@@ -14,6 +15,7 @@ export const SingupPage = () => {
     }
     return(
         <div>
+            <Header nameButton={nameButton} setNameButton={setNameButton} />
             <h1>Singup Page</h1>
                 <button onClick={goToLogin}>Entrar</button>
             <form onSubmit={onSubmit}>               

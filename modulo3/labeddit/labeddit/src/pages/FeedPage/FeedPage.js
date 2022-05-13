@@ -5,8 +5,9 @@ import { goToDetalhes } from '../../routes/Coordinator';
 import { createPostFunction } from '../../services/createPostFunction';
 import { getPostFunction } from '../../services/getPostFunction';
 import { CardPost } from './CardPost';
+import { Header } from '../Header/Header';
 
-export const FeedPage = () => {
+export const FeedPage = ({nameButton, setNameButton}) => {
     const [post, setPost] = useState();
     const [form, handleInputChange] = useForm({title:'', body:''})
 
@@ -39,6 +40,7 @@ export const FeedPage = () => {
 
     return(
         <div>
+            <Header nameButton={nameButton} setNameButton={setNameButton} />
             <h1>Feed Page</h1>
             <div>
                 <form onSubmit={onSubmit} >

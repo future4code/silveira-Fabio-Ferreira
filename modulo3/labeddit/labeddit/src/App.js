@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Router } from "./routes/Routes";
 
 function App() {
+  const token = localStorage.getItem('token')
+  const [nameButton, setNameButton] = useState(token ? 'logout' : 'login')
   return (
     <div>
-      <Router />
+      <Router nameButton={nameButton} setNameButton={setNameButton} />
     </div>
   );
 }

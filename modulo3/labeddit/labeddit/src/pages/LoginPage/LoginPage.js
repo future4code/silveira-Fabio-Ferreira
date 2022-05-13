@@ -4,13 +4,13 @@ import useForm from '../../hooks/useForm';
 import { goToCadastro } from '../../routes/Coordinator';
 import { loginFunction } from '../../services/loginFunction';
 
-export const LoginPage = () => {
+export const LoginPage = ({nameButton, setNameButton}) => {
     const [form, handleInputChange] = useForm({email:'', password:''})
     const navigate = useNavigate();
 
     const onSubmit = (e) => {
         e.preventDefault()
-        loginFunction(form, navigate)
+        loginFunction(form, navigate, setNameButton)
     }
 
     return(

@@ -66,6 +66,7 @@ export const CardComments = (props) => {
               <h3>enviado por:{props.itemComent && props.itemComent.username}</h3>
               <p>{props.itemComent && props.itemComent.body}</p>
               <button onClick={buttonLike}>curtir</button>
+              {props.itemComent.voteSum}
               <button onClick={buttonDislke}>descurtir</button>
             </form>
         </div>

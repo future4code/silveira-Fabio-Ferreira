@@ -7,7 +7,7 @@ export const getPostFunction = (setPost) => {
         headers: {
             'Authorization': `${token}`
         }
-    } , )
+    } )
     .then((res)=>{
         //  console.log(res.data)
          setPost(res.data)
