@@ -1,9 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useLogin } from "../Hooks/useLogin";
 
 export const Login = () => {
   const navigate = useNavigate()
+  const logar = useLogin()
+
+  
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -16,6 +20,13 @@ export const Login = () => {
     setSenha(event.target.value);
   }
 
+  const onSubmitLogin = (logar) => {
+    const body ={
+      email: email,
+      password: senha
+    }
+    const [login] = ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/fabio/login', body)
+  }
 
   const goBack = () => {
     navigate(-1)
@@ -39,7 +50,7 @@ export const Login = () => {
        onChange={onChangeSenha}
        />
       <button onClick={goBack} >voltar</button>
-      <button onClick={Login} >Login</button>
+      <button onClick={onSubmitLogin} >Login</button>
     </div>
   );
 }
