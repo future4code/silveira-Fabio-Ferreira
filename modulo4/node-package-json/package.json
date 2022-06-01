@@ -1,0 +1,19 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js",
+    "soma": "node ./operacoes/soma.js",
+    "sub": "node ./operacoes/sub.js",
+    "div": "node ./operacoes/div.js",
+    "mult": "node ./operacoes/mult.js",
+    "tarefas": "node ./tarefas/tarefas"
+    
+  },
+  "keywords": [],
+  "author": "Fabio Matheus",
+  "license": "ISC"
+}
