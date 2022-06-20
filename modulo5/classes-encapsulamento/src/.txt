@@ -1,0 +1,15 @@
+- Exercício 1
+    
+    Analise a classe `UserAccount` abaixo. Perceba quais propriedades são públicas e quais são privadas e responda as perguntas discursivas em comentários no arquivo `index.ts`
+    
+    a) *Para que serve o construtor dentro de uma classe e como fazemos para chamá-lo?*
+    
+    constructor é uma função necessária para executar ações que devem ser executadas ao criar uma instancia de classe.
+
+    b) *Copie o código abaixo para o seu exercício de hoje; crie uma instância dessa classe (dê o nome, cpf e idade que você quiser). Quantas vezes a mensagem `"Chamando o construtor da classe User"` foi impressa no terminal?*
+    
+    é chamado uma vez pra cada vez que é chamada através do new.
+
+    c) *Como conseguimos ter acesso às propriedades privadas de uma classe?*
+
+    por meio de metodos publicos, dos Getters e Setters usados para pegar ou setar alguma dessas propriedades.
