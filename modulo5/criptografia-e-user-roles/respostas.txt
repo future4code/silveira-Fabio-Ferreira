@@ -1,0 +1,14 @@
+exercicio 1
+a)round é a variavel que vai chamar o cost é recomendavel sempre colocar de 12 pra cima pra garantir a segurança dos dados
+
+b/c) resposta em HashManager
+
+exercicio 2
+a) o cadastro pra poder no login fazer a validação
+
+b/c)resposta no endpoint
+
+exercicio 3/4
+respostas nas pastas
+
+
