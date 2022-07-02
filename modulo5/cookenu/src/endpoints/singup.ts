@@ -10,6 +10,11 @@ export async function singup (req:Request, res:Response){
             .send("insira corretamente todas informações");
         }
 
+        if (user) {
+            res.status(409)
+            .send("usuario já cadastrado!")
+        }
+
         const idGenerator = new IdGenerator();
         const id = idGenerator.generate();
     } catch (error:any) {

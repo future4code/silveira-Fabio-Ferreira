@@ -11,4 +11,8 @@ export class User{
         protected password: string,
         protected role: USER_ROLES  
     ){}
+
+    static toUserModel(data:any): User {
+        return new User (data.id, data.name, data.email, data.password, data.role)
+    }
 }
