@@ -1,0 +1,24 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name":"Fabio",
+    "email":"Fabio@gmail.com",
+    "password":"123123",
+    "role":"ADMIN"
+}
+
+###
+
+POST  http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email":"Fabio@gmail.com",
+    "password":"123123"
+}
+
+###
+
+GET http://localhost:3003/user/profiles
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5YmIyNzE0LTZlNzEtNGI2YS04OTNlLWE0NDhkZGJlNjhkNyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Njk3MTQ4OCwiZXhwIjoxNjU2OTcyOTI4fQ.Yr2FE2r1Qn4JOHMAgw8bfE8CLSpdYcX1vf88Fa_PnQE"
