@@ -3,6 +3,11 @@ export enum USER_ROLES {
     ADMIN = "ADMIN"
 }
 
+export interface AuthenticationData {
+    id: string,
+    role: USER_ROLES
+}
+
 export class User {
     constructor(
         protected id: string,

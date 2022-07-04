@@ -1,0 +1,28 @@
+POST http://localhost:3003/user/singup
+Content-Type: application/json
+
+{
+    "name": "Severo Snape",
+    "email": "Severo_potions@Hoggwarts.com",
+    "password": "HateHarry123",
+    "role": "ADMIN"
+}
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "Severo_potions@Hoggwarts.com",
+    "password": "HateHarry123"
+}
+
+###
+
+GET http://localhost:3003s/user/profile
+Content-Type: application/json
+
+{
+    "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEzNWEzZmVkLTcxNGUtNDJiZi1iYmI5LWY2OTJlZTczZjc3NiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NjkwMjc4NSwiZXhwIjoxNjU2OTIwNzg1fQ.SG-5QqjFmTZ0kQdjJyKiPueLg_Lz8JlrLt7ugy7BxFs"
+}
