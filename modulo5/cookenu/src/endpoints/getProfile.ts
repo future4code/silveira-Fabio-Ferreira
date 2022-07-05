@@ -6,7 +6,7 @@ import { Authenticator } from "../services/Authenticator"
 
 export async function getProfile(req: Request, res: Response): Promise<void> {
     try {
-        const token = req.headers.authorization as string
+        const token = req.headers.authorization! as string
         const authenticator = new Authenticator()
         const tokenData = authenticator.getTokenData(token) as AuthenticationData
         const userDB = new UserDatabase()

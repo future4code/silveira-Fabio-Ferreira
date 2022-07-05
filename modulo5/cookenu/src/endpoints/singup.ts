@@ -18,7 +18,6 @@ export async function singup (req:Request, res:Response){
         const userDB = new UserDatabase()
         const user = await userDB.findUserByEmail(email);
 
-        console.log(user)
 
         if (user) {
             res.status(409)

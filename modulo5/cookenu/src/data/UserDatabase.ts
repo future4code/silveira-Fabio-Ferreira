@@ -34,5 +34,7 @@ export class UserDatabase extends BaseDatabase {
             .select("*")
             .where({ id });
         return user[0] && User.toUserModel(user[0])
+    }catch (error: any) {
+        throw new Error(error.sqlMessage || error.message)
     }
 }
