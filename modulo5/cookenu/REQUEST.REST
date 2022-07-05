@@ -47,3 +47,11 @@ Content-Type: application/json
     "description": "Pega a galinha e mata"
 }
 
+###
+
+GET http://localhost:3003/recepie/:id
+Content-Type: application/json
+
+{
+    "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEzNWEzZmVkLTcxNGUtNDJiZi1iYmI5LWY2OTJlZTczZjc3NiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1Njk4NTExMSwiZXhwIjoxNjU3MDAzMTExfQ.N1Cgn-X7jzH-v5I3YPDAzyz3u3wrsQgwl7oFdc4QyGQ"
+}

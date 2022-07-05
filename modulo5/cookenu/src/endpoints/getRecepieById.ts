@@ -27,7 +27,8 @@ export async function getRecepieById(req: Request, res: Response): Promise<void>
         res.status(200).send({
             id: recepieId.id,
             title: recepieId.title,
-            description: recepieId.description
+            description: recepieId.description,
+            date: recepieId.date
         })
 
     } catch (error: any) {

@@ -19,7 +19,7 @@ export class RecepiesDatabase extends BaseDatabase {
         const recepie = await BaseDatabase.connection("cookenu_recepies")
             .select("*")
             .where({ id });
-        return recepie[0] && Recepie.toRecepiesModel(recepie[0])
+        return recepie[0]
     }catch (error: any) {
         throw new Error(error.sqlMessage || error.message)
     }

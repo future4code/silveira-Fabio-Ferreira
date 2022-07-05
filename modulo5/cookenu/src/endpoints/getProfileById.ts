@@ -23,6 +23,7 @@ export async function getProfileById(req: Request, res: Response): Promise<void>
             throw new Error("Não existe esse ID")
         }
         const userId = await userDB.getUserById(id)
+        console.log(userId)
 
         res.status(200).send({
             id: userId.id,
