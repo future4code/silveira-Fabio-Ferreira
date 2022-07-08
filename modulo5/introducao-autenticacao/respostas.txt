@@ -1,0 +1,36 @@
+EXERCICIO 2
+
+A)o código faz conexão com o banco de dados mysql e uma função que recebe como parametro
+email, id e senha e coloca em uma tabela
+
+B)CREATE TABLE users (
+    id VARCHAR(64) PRIMARY KEY,
+    email VARCHAR(64) NOT NULL,
+    password varchar(255) NOT NULL
+);
+
+C)resposta nos endpoints e connection na pasta src
+
+
+
+EXERCICIO 3
+
+A) usamos as String para garantir que a resposta seja dada como string 
+
+B) resposta na pasta services
+
+
+
+EXERCICIO 4 / EXERCICIO 5 / EXERCICIO 6
+
+resosta no endpoints
+
+EXERCICIO 7
+
+A) garante o retorne qualquer type em resposta ao chamado da função
+
+B)resposta em services
+
+EXERCICIO 8
+
+respostas em data e endpoints
