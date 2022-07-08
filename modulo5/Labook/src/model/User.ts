@@ -1,11 +1,5 @@
-export enum USER_ROLES {
-    NORMAL = "NORMAL",
-    ADMIN = "ADMIN"
-}
-
 export interface AuthenticationData {
-    id: string,
-    role: USER_ROLES
+    id: string
 }
 
 export class User {
@@ -13,8 +7,7 @@ export class User {
         protected id: string,
         protected name: string,
         protected email: string,
-        protected password: string,
-        protected role: USER_ROLES
+        protected password: string
     ) { }
 
     public getId() {
@@ -29,11 +22,8 @@ export class User {
     public getPassword() {
         return this.password;
     }
-    public getRole() {
-        return this.role;
-    }
 
     static toUserModel(data: any): User {
-        return new User(data.id, data.name, data.email, data.password, data.role)
+        return new User(data.id, data.name, data.email, data.password)
     }
 }
