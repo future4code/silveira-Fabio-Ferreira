@@ -16,9 +16,9 @@ export class UserController {
                 password
             };
 
-            this.userBusiness.createUser(input);
+            const token = await this.userBusiness.createUser(input);
 
-            res.status(201).send({ message: "Usuário criado!" })
+            res.status(201).send({ message: "Usuário criado!", token })
         } catch (error: any) {
 
         }

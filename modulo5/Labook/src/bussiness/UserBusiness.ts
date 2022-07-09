@@ -1,15 +1,17 @@
 import { CustomError, InvalidEmail, InvalidName } from "../error/customError";
 import { User } from "../model/User";
-import { UserInputDTO } from "../model/UserTypes";
+import { user, UserInputDTO } from "../model/UserTypes";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/idGenerator";
+import { Authenticator } from "../services/Authenticator";
 import { UserRepository } from "./UserRepository";
 
 export class UserBusiness {
     constructor(
         private userDatabase: UserRepository,
         private idGenerator: IdGenerator,
-        private hashManager: HashManager
+        private hashManager: HashManager,
+        private authenticator: Authenticator
     ) { }
     public createUser = async (input: UserInputDTO) => {
         try {
@@ -42,14 +44,23 @@ export class UserBusiness {
 
             const hashedPassword = await this.hashManager.hash(password);
 
-            const user: User = {
+            const user = new User(
                 id,
                 name,
                 email,
-                password
-            }
-        } catch (error: any) {
+                hashedPassword
+            );
 
+            await this.userDatabase.insertUser(user);
+
+            const token = this.authenticator.generate({ id });
+
+            return token
+        } catch (error: any) {
+            throw new CustomError(
+                500,
+                "Deu ruim patrão"
+            )
         }
     }
-}
+};

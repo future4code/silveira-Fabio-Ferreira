@@ -10,3 +10,10 @@ export interface UserInputDTO {
     email: string,
     password: string
 };
+
+export type FindByEmailRes ={
+    id:string
+    name:string
+    email:string
+    password:string
+}[]

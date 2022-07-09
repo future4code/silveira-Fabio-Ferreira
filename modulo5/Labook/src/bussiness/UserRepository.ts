@@ -1,5 +1,6 @@
 import { User } from "../model/User";
 
 export interface UserRepository {
-    instert: (user: User) => Promise<void>
+    insertUser: (user: User) => Promise<void>,
+    // findByEmail: (email: string) => Promise<{}>
 }
