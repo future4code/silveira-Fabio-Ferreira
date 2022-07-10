@@ -5,7 +5,7 @@ export type user = {
     password: string
 };
 
-export interface UserInputDTO {
+export type UserInputDTO = {
     name: string,
     email: string,
     password: string

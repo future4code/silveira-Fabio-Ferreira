@@ -1,18 +1,19 @@
 import { CustomError, InvalidEmail, InvalidName } from "../error/customError";
-import { User } from "../model/User";
+import { AuthenticationData, User } from "../model/User";
 import { user, UserInputDTO } from "../model/UserTypes";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/idGenerator";
 import { Authenticator } from "../services/Authenticator";
-import { UserRepository } from "./UserRepository";
+import { UserDatabase } from "../data/UserDatabase";
 
 export class UserBusiness {
     constructor(
-        private userDatabase: UserRepository,
+        private userDatabase: UserDatabase,
         private idGenerator: IdGenerator,
         private hashManager: HashManager,
         private authenticator: Authenticator
     ) { }
+    
     public createUser = async (input: UserInputDTO) => {
         try {
             const { name, email, password } = input;
@@ -41,8 +42,12 @@ export class UserBusiness {
 
             const id: string = this.idGenerator.generate();
 
+            console.log("id", id)
+
 
             const hashedPassword = await this.hashManager.hash(password);
+
+            
 
             const user = new User(
                 id,
@@ -50,10 +55,20 @@ export class UserBusiness {
                 email,
                 hashedPassword
             );
+            console.log("user", user)
+
+            const payload:AuthenticationData = {
+                id: user.getId()
+            }
+
+            const token = this.authenticator.generate(payload);
+            
+            console.log("token", token)
 
             await this.userDatabase.insertUser(user);
 
-            const token = this.authenticator.generate({ id });
+            console.log("cheguei")
+
 
             return token
         } catch (error: any) {

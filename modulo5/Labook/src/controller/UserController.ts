@@ -18,7 +18,7 @@ export class UserController {
 
             const token = await this.userBusiness.createUser(input);
 
-            res.status(201).send({ message: "Usuário criado!", token })
+            res.status(201).send({ token })
         } catch (error: any) {
 
         }
