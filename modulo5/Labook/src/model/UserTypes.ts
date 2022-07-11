@@ -11,6 +11,11 @@ export type UserInputDTO = {
     password: string
 };
 
+export type UserInputLoginDTO = {
+    email: string,
+    password: string
+};
+
 export type FindByEmailRes ={
     id:string
     name:string

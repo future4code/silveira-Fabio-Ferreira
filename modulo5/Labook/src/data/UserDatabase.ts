@@ -20,7 +20,7 @@ export class UserDatabase extends BaseDatabase {
     };
     public findByEmail = async (
         email: string
-    ): Promise<{}> => {
+    ) => {
         try {
             const result: FindByEmailRes = await UserDatabase.
                 connection("user_Labook")

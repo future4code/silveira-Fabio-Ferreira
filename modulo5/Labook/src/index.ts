@@ -18,3 +18,4 @@ const userController = new UserController(
 );
 
 app.post('/user', userController.createUser);
+app.post('/user/login', userController.login);

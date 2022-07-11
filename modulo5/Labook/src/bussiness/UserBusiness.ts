@@ -1,6 +1,6 @@
 import { CustomError, InvalidEmail, InvalidName } from "../error/customError";
 import { AuthenticationData, User } from "../model/User";
-import { user, UserInputDTO } from "../model/UserTypes";
+import { user, UserInputDTO, UserInputLoginDTO } from "../model/UserTypes";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/idGenerator";
 import { Authenticator } from "../services/Authenticator";
@@ -76,6 +76,48 @@ export class UserBusiness {
                 500,
                 "Deu ruim patrão"
             )
+        }
+    }
+    public login = async (inputLogin: UserInputLoginDTO) =>{
+        try {
+
+            const { email, password } = inputLogin;
+
+            if (!email || !password) {
+                throw new CustomError(
+                    400,
+                    "preencha os campos corretamente."
+                );
+            }
+    
+            const userDB = new UserDatabase()
+            const user = await userDB.findByEmail(email);
+    
+    
+            if (!user) {
+                throw new CustomError(
+                    400,
+                    "Usuário já cadastrado."
+                );
+            }
+    
+            const hashManager = new HashManager();
+            const passwordIsCorrect = await hashManager.compare(password, user.getPassword());
+    
+            if (!passwordIsCorrect) {
+                throw new CustomError(
+                    400,
+                    "Email ou senha incorretos."
+                );
+            }
+    
+    
+            const authenticator = new Authenticator();
+            const token = authenticator.generate({ id: user.getId() })
+
+            return token
+        } catch (error) {
+            
         }
     }
 };
