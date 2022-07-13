@@ -15,4 +15,10 @@ export class PostDatabase extends BaseDatabase {
       throw new Error(error.sqlMessage || error.message);
     }
   };
+  public getPostByID = async (id: string): Promise<any> => {
+    const post = await BaseDatabase.connection("post_Labook")
+      .select("*")
+      .where({ id });
+    return post[0];
+  };
 }

@@ -42,12 +42,8 @@ export class UserBusiness {
 
             const id: string = this.idGenerator.generate();
 
-            console.log("id", id)
 
-
-            const hashedPassword = await this.hashManager.hash(password);
-
-            
+            const hashedPassword = await this.hashManager.hash(password);  
 
             const user = new User(
                 id,
@@ -55,7 +51,7 @@ export class UserBusiness {
                 email,
                 hashedPassword
             );
-            console.log("user", user)
+
 
             const payload:AuthenticationData = {
                 id: user.getId()
@@ -63,11 +59,11 @@ export class UserBusiness {
 
             const token = this.authenticator.generate(payload);
             
-            console.log("token", token)
+
 
             await this.userDatabase.insertUser(user);
 
-            console.log("cheguei")
+
 
 
             return token

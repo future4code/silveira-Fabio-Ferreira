@@ -13,3 +13,8 @@ export type PostInputDTO = {
   description: string;
   type: POST_TYPE;
 };
+
+export type getPostInputDTO = {
+  id: string;
+  token: string;
+};
