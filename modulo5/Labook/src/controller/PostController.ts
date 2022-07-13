@@ -9,7 +9,8 @@ export class PostController {
     public createUser = async (req: Request, res: Response) => {
         try {
             const { photo, description, type } = req.body;
-            const token: string = req.headers.authorization as string  
+
+            const token: string = req.headers.authorization as string;
 
             const input: PostInputDTO = {
                 photo,

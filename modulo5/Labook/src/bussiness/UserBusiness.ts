@@ -1,6 +1,6 @@
 import { CustomError, InvalidEmail, InvalidName } from "../error/customError";
 import { AuthenticationData, User } from "../model/User";
-import { user, UserInputDTO, UserInputLoginDTO } from "../model/UserTypes";
+import { UserInputDTO, UserInputLoginDTO } from "../model/UserTypes";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/idGenerator";
 import { Authenticator } from "../services/Authenticator";

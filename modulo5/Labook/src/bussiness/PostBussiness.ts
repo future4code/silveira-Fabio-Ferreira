@@ -1,55 +1,49 @@
+import moment from "moment";
+import { PostDatabase } from "../data/PostDatabase";
 import { CustomError } from "../error/customError";
 import { Post } from "../model/Post";
 import { PostInputDTO } from "../model/PostTypes";
+import { AuthenticationData } from "../model/User";
+import { Authenticator } from "../services/Authenticator";
+import { IdGenerator } from "../services/idGenerator";
 
 export class PostBussiness {
-    public createPost = async (input: PostInputDTO) => {
-        try {
-            const { photo, description, type } = input;
+  constructor(
+    private postDatabase: PostDatabase,
+    private idGenerator: IdGenerator,
+    private authenticator: Authenticator
+  ) {}
+  public createPost = async (input: PostInputDTO) => {
+    try {
+      const { photo, description, type } = input;
 
-            if (!photo || !description || !type) {
-                throw new CustomError(
-                    400,
-                    "preencha os campos corretamente."
-                );
-            };
+      const date: string = moment().format("YYYY/MM/DD");
 
-            const id: string = this.idGenerator.generate();
+      if (!photo || !description || !type) {
+        throw new CustomError(400, "preencha os campos corretamente.");
+      }
 
-            console.log("id", id)
+      const id: string = this.idGenerator.generate();
+      console.log("id", id);
 
+      const post = new Post(id, photo, description, date, type);
+      //   console.log("user", post);
 
+      const payload: AuthenticationData = {
+        id: post.getId(),
+      };
 
-            
+      const token = this.authenticator.generate(payload);
 
-            const user = new Post(
-                id,
-                photo,
-                description,
-                date,
-                type
-            );
-            console.log("user", user)
+      console.log("token", token);
 
-            const payload:AuthenticationData = {
-                id: user.getId()
-            }
+      await this.postDatabase.createPost(post);
 
-            const token = this.authenticator.generate(payload);
-            
-            console.log("token", token)
+      console.log("cheguei");
 
-            await this.userDatabase.insertUser(user);
-
-            console.log("cheguei")
-
-
-            return token
-        } catch (error: any) {
-            throw new CustomError(
-                500,
-                "Deu ruim patrão"
-            )
-        }
+      return token;
+    } catch (error: any) {
+      throw new CustomError(500, "Deu ruim patrão");
     }
+  };
 }
