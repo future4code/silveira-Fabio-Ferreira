@@ -7,7 +7,7 @@ import { Restaurante } from "../Pages/Restaurant/restaurant";
 import { Singup } from "../Pages/Singup/singup";
 import { SingupAddress } from "../Pages/SingupAddress/singupAddress";
 
-export const router = () => {
+export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
