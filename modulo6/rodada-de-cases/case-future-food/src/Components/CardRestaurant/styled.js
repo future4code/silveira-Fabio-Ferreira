@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const ContainerCardRestaurant = styled.div`
   width: 100%;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
   margin: 0.5rem 0;
 `;
 
 export const ImageRestaurant = styled.img`
   width: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
 `;
 
 export const NameRestaurant = styled.h3`
