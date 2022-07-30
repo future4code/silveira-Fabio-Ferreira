@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-export const ContainerCardRestaurant = styled.div`
+export const ContainerCardRestaurantDetail = styled.div`
   width: 100%;
-  border: 1px solid gray;
-  border-radius: 5px;
   margin: 0.5rem 0;
 `;
 
@@ -28,10 +26,9 @@ export const NameRestaurant = styled.h3`
 
 export const BoxInformTimePrice = styled.div`
   display: flex;
-  justify-content: space-between;
 `;
 
-export const InformTimePrice = styled.p`
+export const Inform = styled.p`
   margin: 0.75rem 1rem 0.25rem;
   font-family: Roboto;
   font-size: 1rem;
@@ -42,4 +39,5 @@ export const InformTimePrice = styled.p`
   letter-spacing: -0.39px;
   text-align: right;
   color: gray;
+  display: flex;
 `;

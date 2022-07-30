@@ -13,3 +13,7 @@ export const goToSingup = (navigate) => {
 export const goToSingupAddress = (navigate) => {
   navigate("/singup/address");
 };
+
+export const goToRestaurant = (navigate, id) => {
+  navigate(`/feed/${id}`);
+};
