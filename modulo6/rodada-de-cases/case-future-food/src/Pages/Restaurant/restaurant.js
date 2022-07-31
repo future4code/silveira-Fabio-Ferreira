@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { CardRestaurantDetail } from "../../Components/CardRestaurantDetails/CardRestaurantDetail";
 import { CardRestaurant, SectionProductByCategory, Category } from "./styled";
 import { CardProduct } from "../../Components/CardProduct/CardProduct";
+import { Header } from "../../Header/Header";
 
 export const Restaurante = () => {
   const { restaurantId } = useParams();
@@ -46,6 +47,7 @@ export const Restaurante = () => {
 
   return (
     <div>
+      <Header title={"Restaurante"} back={true} />
       <CardRestaurant>
         <CardRestaurantDetail restaurant={restaurant} />
         {restaurant.products &&

@@ -11,10 +11,10 @@ export const useRequestData = (initialState, url) => {
           auth: window.localStorage.getItem("token"),
         },
       })
-      .then(() => {
+      .then((res) => {
         setData(res.data);
       })
-      .catch(() => {
+      .catch((err) => {
         console.log(err.response.data.message);
       });
   };

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CardRestaurant = styled.div`
-  padding: 0.1rem;
+  padding: 1rem;
 `;
 
 export const SectionProductByCategory = styled.div`

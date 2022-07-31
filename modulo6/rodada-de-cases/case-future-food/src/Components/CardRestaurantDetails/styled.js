@@ -37,7 +37,7 @@ export const Inform = styled.p`
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.39px;
-  text-align: right;
+  text-align: left;
   color: gray;
   display: flex;
 `;

@@ -2,6 +2,10 @@ export const goToLogin = (navigate) => {
   navigate("/");
 };
 
+export const goBack = (navigate) => {
+  navigate(-1);
+};
+
 export const goToFeed = (navigate) => {
   navigate("/feed");
 };

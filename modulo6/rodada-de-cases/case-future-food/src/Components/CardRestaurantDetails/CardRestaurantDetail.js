@@ -17,11 +17,12 @@ export const CardRestaurantDetail = ({ restaurant }) => {
     >
       <ImageRestaurant src={restaurant.logoUrl} />
       <NameRestaurant>{restaurant.name}</NameRestaurant>
-      <Inform></Inform>
+      <Inform>{restaurant.category}</Inform>
       <BoxInformTimePrice>
         <Inform>{`${restaurant.deliveryTime} min`}</Inform>
-        <Inform>{`Frete R$ ${restaurant.shipping}`}</Inform>
+        <Inform>{`Frete R$${restaurant.shipping}`}</Inform>
       </BoxInformTimePrice>
+      <Inform>{restaurant.address}</Inform>
     </ContainerCardRestaurantDetail>
   );
 };
