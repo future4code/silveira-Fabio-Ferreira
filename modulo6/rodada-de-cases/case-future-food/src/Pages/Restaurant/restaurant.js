@@ -5,7 +5,8 @@ import { useParams } from "react-router-dom";
 import { CardRestaurantDetail } from "../../Components/CardRestaurantDetails/CardRestaurantDetail";
 import { CardRestaurant, SectionProductByCategory, Category } from "./styled";
 import { CardProduct } from "../../Components/CardProduct/CardProduct";
-import { Header } from "../../Header/Header";
+import { Header } from "../../Components/Header/Header";
+import { Menu as MenuMain } from "../../Components/Menu/Menu";
 
 export const Restaurante = () => {
   const { restaurantId } = useParams();
@@ -61,13 +62,18 @@ export const Restaurante = () => {
                   })
                   .map((products) => {
                     return (
-                      <CardProduct products={products} key={products.id} />
+                      <CardProduct
+                        products={products}
+                        restaurant={restaurant}
+                        key={products.id}
+                      />
                     );
                   })}
               </SectionProductByCategory>
             );
           })}
       </CardRestaurant>
+      <MenuMain page={"none"} />
     </div>
   );
 };

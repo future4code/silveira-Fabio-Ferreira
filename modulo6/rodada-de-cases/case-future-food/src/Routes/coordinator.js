@@ -1,5 +1,5 @@
 export const goToLogin = (navigate) => {
-  navigate("/");
+  navigate("/login");
 };
 
 export const goBack = (navigate) => {
@@ -7,7 +7,11 @@ export const goBack = (navigate) => {
 };
 
 export const goToFeed = (navigate) => {
-  navigate("/feed");
+  navigate("/");
+};
+
+export const goToCart = (navigate) => {
+  navigate("/cart");
 };
 
 export const goToSingup = (navigate) => {
@@ -20,4 +24,8 @@ export const goToSingupAddress = (navigate) => {
 
 export const goToRestaurant = (navigate, id) => {
   navigate(`/feed/${id}`);
+};
+
+export const goToProfile = (navigate) => {
+  navigate(`/perfil`);
 };

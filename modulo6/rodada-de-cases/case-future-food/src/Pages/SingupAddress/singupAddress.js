@@ -5,6 +5,7 @@ import { useForm } from "../../Hooks/useForm";
 import { Form, InputMaterial, Main, StyledButton } from "./styled";
 import { useNavigate } from "react-router-dom";
 import { goToFeed } from "../../Routes/coordinator";
+import { Header } from "../../Components/Header/Header";
 
 export const SingupAddress = () => {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ export const SingupAddress = () => {
 
   return (
     <Main>
+      <Header back={true} />
       <p>Meu endereço</p>
       <Form onSubmit={onSubmitFormAdress}>
         <InputMaterial

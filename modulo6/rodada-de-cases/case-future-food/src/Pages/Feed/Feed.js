@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CardRestaurant } from "../../Components/CardRestaurant/CardRestaurant";
 import { BASE_URL } from "../../Constants/url";
-import { Header } from "../../Header/Header";
+import { Header } from "../../Components/Header/Header";
 import { useProtectedPage } from "../../Hooks/useProtectedPage";
 import {
   CardRestaurants,
@@ -11,6 +11,7 @@ import {
   Menu,
   MenuItem,
 } from "./styled";
+import { Menu as MenuMain } from "../../Components/Menu/Menu";
 
 export const Feed = () => {
   useProtectedPage();
@@ -54,11 +55,11 @@ export const Feed = () => {
       changeObjectArray.push(insertObj);
     });
 
-    console.log(changeObjectArray);
+    console.log("deve ser aqui", changeObjectArray);
     setCategoryRestaurant(changeObjectArray);
   };
 
-  console.log(categoryRestaurant);
+  console.log("talvez aqui", categoryRestaurant);
 
   useEffect(() => {
     getRestaurants();
@@ -100,7 +101,6 @@ export const Feed = () => {
           select: false,
         };
       }
-      return cat;
     });
     setCategoryRestaurant(result);
   };
@@ -134,6 +134,7 @@ export const Feed = () => {
         </Menu>
         {filterRestaurant}
       </CardRestaurants>
+      <MenuMain page={"home"} />
     </ContainerFeed>
   );
 };

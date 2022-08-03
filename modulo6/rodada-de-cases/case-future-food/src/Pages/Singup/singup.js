@@ -8,6 +8,7 @@ import { useForm } from "../../Hooks/useForm";
 import { DivPassword, Form, InputMaterial, Main, StyledButton } from "./styled";
 import { useNavigate } from "react-router-dom";
 import { goToSingupAddress } from "../../Routes/coordinator";
+import { Header } from "../../Components/Header/Header";
 
 export const Singup = () => {
   const [showPass, setShowPass] = useState(false);
@@ -69,6 +70,7 @@ export const Singup = () => {
 
   return (
     <Main>
+      <Header back={true} />
       <p>cadastro</p>
       <Form onSubmit={onSubmitForm}>
         <InputMaterial

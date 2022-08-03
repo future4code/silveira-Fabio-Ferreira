@@ -14,9 +14,10 @@ import {
 } from "./styled";
 import { BASE_URL } from "../../Constants/url";
 import { useRequestData } from "../../Hooks/useRequestData";
-import { Header } from "../../Header/Header";
+import { Header } from "../../Components/Header/Header";
 import { CardCart } from "../../Components/CardCart/CardCart";
 import { Button } from "@mui/material";
+import { Menu as MenuMain } from "../../Components/Menu/Menu";
 
 export const Cart = () => {
   const profile = useRequestData({}, `${BASE_URL}/profile`);
@@ -121,6 +122,7 @@ export const Cart = () => {
           </Form>
         </Payment>
       </CartConfig>
+      <MenuMain page={"cart"} />
     </Main>
   );
 };
