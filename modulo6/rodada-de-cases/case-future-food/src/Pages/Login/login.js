@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { DivPassword, Form, InputMaterial, Main, StyledButton } from "./styled";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import axios from "axios";
 import { BASE_URL } from "../../Constants/url";
-import { goToFeed } from "../../Routes/coordinator";
+import { goToFeed, goToSingup } from "../../Routes/coordinator";
 import { useNavigate } from "react-router-dom";
+import { Header } from "../../Components/Header/Header";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -60,48 +61,53 @@ export const Login = () => {
   };
 
   return (
-    <Main>
-      <p>Entrar</p>
-      <Form onSubmit={onSubmitLogin}>
-        <InputMaterial
-          error={checkErrEmail}
-          helperText={checkErrEmail ? errEmail : ""}
-          id="outlined-basic"
-          type={"email"}
-          label="email"
-          variant="outlined"
-          placeholder={"email@email.com"}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <DivPassword>
+    <>
+      <Header title={"Entrar"} />
+      <Main>
+        <Form onSubmit={onSubmitLogin}>
           <InputMaterial
-            error={checkErrPass}
-            helperText={checkErrPass ? errPassword : ""}
+            error={checkErrEmail}
+            helperText={checkErrEmail ? errEmail : ""}
             id="outlined-basic"
-            type={showPass ? "password" : "text"}
-            label="senha"
+            type={"email"}
+            label="email"
             variant="outlined"
-            placeholder={"minimo 6 caracteres"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            inputProps={{
-              minLength: 6,
-              title: "A senha deve conter no minimo 6 caracteres",
-            }}
+            placeholder={"email@email.com"}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <IconButton
-            aria-label="toggle password visibility"
-            onClick={handleClickShowPassword}
-            edge="end"
-          >
-            {showPass ? <VisibilityOff /> : <Visibility />}
-          </IconButton>
-        </DivPassword>
-        <StyledButton type="submit">Entrar</StyledButton>
-      </Form>
-    </Main>
+          <DivPassword>
+            <InputMaterial
+              error={checkErrPass}
+              helperText={checkErrPass ? errPassword : ""}
+              id="outlined-basic"
+              type={showPass ? "password" : "text"}
+              label="senha"
+              variant="outlined"
+              placeholder={"minimo 6 caracteres"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              inputProps={{
+                minLength: 6,
+                title: "A senha deve conter no minimo 6 caracteres",
+              }}
+              required
+            />
+            <IconButton
+              aria-label="toggle password visibility"
+              onClick={handleClickShowPassword}
+              edge="end"
+            >
+              {showPass ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
+          </DivPassword>
+          <StyledButton type="submit">Entrar</StyledButton>
+        </Form>
+        <Button onClick={() => goToSingup(navigate)}>
+          Não possui cadastro? clique aqui.
+        </Button>
+      </Main>
+    </>
   );
 };

@@ -6,8 +6,10 @@ import { Form, InputMaterial, Main, StyledButton } from "./styled";
 import { useNavigate } from "react-router-dom";
 import { goToFeed } from "../../Routes/coordinator";
 import { Header } from "../../Components/Header/Header";
+import { useProtectedPage } from "../../Hooks/useProtectedPage";
 
 export const SingupAddress = () => {
+  useProtectedPage();
   const navigate = useNavigate();
 
   const { form, onChange, clean } = useForm({

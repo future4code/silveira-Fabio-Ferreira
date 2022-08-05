@@ -26,6 +26,14 @@ export const goToRestaurant = (navigate, id) => {
   navigate(`/feed/${id}`);
 };
 
+export const goToAddressEdit = (navigate, id) => {
+  navigate(`/address/${id}`);
+};
+
 export const goToProfile = (navigate) => {
   navigate(`/perfil`);
+};
+
+export const goToProfileEdit = (navigate, id) => {
+  navigate(`/perfil/${id}`);
 };

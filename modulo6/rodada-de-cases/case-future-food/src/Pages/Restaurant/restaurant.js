@@ -7,8 +7,10 @@ import { CardRestaurant, SectionProductByCategory, Category } from "./styled";
 import { CardProduct } from "../../Components/CardProduct/CardProduct";
 import { Header } from "../../Components/Header/Header";
 import { Menu as MenuMain } from "../../Components/Menu/Menu";
+import { useProtectedPage } from "../../Hooks/useProtectedPage";
 
 export const Restaurante = () => {
+  useProtectedPage();
   const { restaurantId } = useParams();
   const [restaurant, setRestaurant] = useState({});
   const [categories, setCategories] = useState([]);
@@ -48,7 +50,7 @@ export const Restaurante = () => {
 
   return (
     <div>
-      <Header title={"Restaurante"} back={true} />
+      <Header title={"Restaurante"} back={true} logOut={true} />
       <CardRestaurant>
         <CardRestaurantDetail restaurant={restaurant} />
         {restaurant.products &&

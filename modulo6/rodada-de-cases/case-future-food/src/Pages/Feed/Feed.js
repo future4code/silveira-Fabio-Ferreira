@@ -12,16 +12,21 @@ import {
   MenuItem,
 } from "./styled";
 import { Menu as MenuMain } from "../../Components/Menu/Menu";
+import { Order } from "../../Components/Order/Order";
+import { useGlobal } from "../../Global/GlobalStateContext";
 
 export const Feed = () => {
   useProtectedPage();
+
+  const { setters, states } = useGlobal();
+  const { setOrder } = setters;
+  const { order } = states;
 
   const [restaurants, setRestaurants] = useState([]);
   const [inputSearch, setInputSearch] = useState([]);
   const [categoryRestaurant, setCategoryRestaurant] = useState([]);
   const [valueCategory, setValueCategory] = useState([]);
 
-  /* requisição para pegar as propriedades dos restaurantes na API */
   const getRestaurants = async () => {
     await axios
       .get(`${BASE_URL}/restaurants`, {
@@ -30,7 +35,6 @@ export const Feed = () => {
         },
       })
       .then((res) => {
-        // console.log(res.data);
         setRestaurants(res.data.restaurants);
         filterCategory(res.data.restaurants);
       })
@@ -39,9 +43,26 @@ export const Feed = () => {
       });
   };
 
-  /*tratamento dos dados do estado restaurants */
+  const getOrder = async () => {
+    await axios
+      .get(`${BASE_URL}/active-order`, {
+        headers: {
+          auth: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        setOrder(res.data.order);
+        const expiresAt = res.data.order.expiresAt;
+        setTimeout(() => {
+          getOrder();
+        }, expiresAt - new Date().getTime());
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
   let filterCategory = (restaurants) => {
-    /*cria um novo array para guardar a propriedade category que vem do estado restaurants*/
     const arrayAux = [];
     restaurants.map((restaurant) => {
       arrayAux.push(restaurant.category);
@@ -54,34 +75,31 @@ export const Feed = () => {
       const insertObj = { category, select: false };
       changeObjectArray.push(insertObj);
     });
-
-    console.log("deve ser aqui", changeObjectArray);
     setCategoryRestaurant(changeObjectArray);
   };
 
-  console.log("talvez aqui", categoryRestaurant);
+  console.log("order", order);
 
   useEffect(() => {
     getRestaurants();
+    getOrder();
   }, []);
 
-  /*filtros de Restaurante, search, categoria e um map pra retornar um card com os restaurantes*/
-
-  const filterRestaurant = restaurants /*filtrar restaurantes por nome */
+  const filterRestaurant = restaurants
     .filter((restaurant) =>
       inputSearch
         ? restaurant.name
             .toLowerCase()
             .includes(inputSearch.toString().toLowerCase())
         : true
-    ) /*filtrar categorias no array restaurante */
+    )
     .filter((restaurant) =>
       valueCategory
         ? restaurant.category
             .toLowerCase()
             .includes(valueCategory.toString().toLowerCase())
         : true
-    ) /* pega os restaurantes e manda as propriedades para a construção do card */
+    )
     .map((restaurants) => {
       return <CardRestaurant restaurants={restaurants} />;
     });
@@ -107,7 +125,7 @@ export const Feed = () => {
 
   return (
     <ContainerFeed>
-      <Header title={"iFuture"} />
+      <Header title={"iFuture"} logOut={true} />
       <CardRestaurants>
         <InputMaterialSearch
           id="outlined-basic"
@@ -134,6 +152,12 @@ export const Feed = () => {
         </Menu>
         {filterRestaurant}
       </CardRestaurants>
+      {order && (
+        <Order
+          totalPrice={order.totalPrice}
+          restaurantName={order.restaurantName}
+        />
+      )}
       <MenuMain page={"home"} />
     </ContainerFeed>
   );

@@ -1,6 +1,8 @@
+import { Button } from "@mui/material";
 import styled from "styled-components";
 
 export const Main = styled.div`
+  font-family: Roboto;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -83,9 +85,10 @@ export const Total = styled.div`
   }
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
   display: flex;
-  flex-direction: ccolumn;
+  flex-direction: column;
+  justify-content: center;
   div {
     margin: 5px;
   }
@@ -96,4 +99,22 @@ export const Form = styled.div`
     height: 20px;
     width: 20%;
   }
+`;
+
+export const FormaPagamento = styled.p`
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+  padding: 0 5px;
+`;
+
+export const StyledButton = styled(Button)`
+  position: fixed;
+  bottom: 0;
 `;
