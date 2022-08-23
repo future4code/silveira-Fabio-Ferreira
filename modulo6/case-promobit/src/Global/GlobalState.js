@@ -9,6 +9,9 @@ export const GlobalState = ({ children }) => {
   const [genre, setGenre] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({});
   const [releaseDate, setReleaseDate] = useState({});
+  const [credtsCast, setCreditsCast] = useState([]);
+  const [credtsCrew, setCreditsCrew] = useState([]);
+
   const getMovie = () => {
     axios
       .get(`${BASE_URL}/movie/popular${API_KEY}&language=pt-BR`)
@@ -25,7 +28,7 @@ export const GlobalState = ({ children }) => {
     axios
       .get(`${BASE_URL}/genre/movie/list${API_KEY}&language=pt-BR`)
       .then((res) => {
-        // console.log(res.data);
+        // console.log("data", res.data);
         setGenre(res.data.genres);
       })
       .catch((err) => {
@@ -57,9 +60,42 @@ export const GlobalState = ({ children }) => {
       });
   };
 
-  const states = { movie, genre, selectedMovie, releaseDate };
-  const requests = { getMovie, getGenre, getMovieById, getReleaseDate };
-  const setters = { setMovie, setGenre, setSelectedMovie, setReleaseDate };
+  const getCredits = async (id) => {
+    await axios
+      .get(`${BASE_URL}/movie/${id}/credits${API_KEY}&language=pt-BR`)
+      .then((res) => {
+        console.log("creditos", res.data.crew);
+        setCreditsCast(res.data.cast);
+        setCreditsCrew(res.data.crew);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
+  const states = {
+    movie,
+    genre,
+    selectedMovie,
+    releaseDate,
+    credtsCast,
+    credtsCrew,
+  };
+  const requests = {
+    getMovie,
+    getGenre,
+    getMovieById,
+    getReleaseDate,
+    getCredits,
+  };
+  const setters = {
+    setMovie,
+    setGenre,
+    setSelectedMovie,
+    setReleaseDate,
+    setCreditsCast,
+    setCreditsCrew,
+  };
 
   return (
     <GlobalStateContext.Provider value={{ states, requests, setters }}>

@@ -71,13 +71,22 @@ export const DivInform = styled.div`
 
 export const ActorsDiv = styled.div`
   padding-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  div {
+    padding: 10px;
+  }
 `;
 
 export const Avaliacao = styled.div`
   padding-top: 25px;
 `;
 
-export const Genre = styled.div`
+export const Genre = styled.p`
+  padding-left: 15px;
+`;
+
+export const DivGenre = styled.div`
   display: flex;
   justify-content: space-evenly;
 `;

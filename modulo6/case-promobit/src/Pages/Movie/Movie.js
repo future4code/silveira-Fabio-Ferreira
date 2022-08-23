@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { CardActor } from "../../Components/CardActors/CardActors";
 import { IMAGE_PATH } from "../../Constants/url";
 import { useGlobal } from "../../Global/GlobalStateContext";
 import {
   ActorsDiv,
   Avaliacao,
   DivDetalhes,
+  DivGenre,
   DivImg,
   DivInform,
-  Generos,
   Genre,
   ImgStyled,
   Main,
@@ -21,13 +22,14 @@ import {
 
 export const Movie = () => {
   const { states, requests } = useGlobal();
-  const { selectedMovie, releaseDate } = states;
-  const { getMovieById, getReleaseDate } = requests;
+  const { selectedMovie, releaseDate, credtsCast, credtsCrew } = states;
+  const { getMovieById, getReleaseDate, getCredits } = requests;
   const { id } = useParams();
 
   useEffect(() => {
     getReleaseDate(id);
     getMovieById(id);
+    getCredits(id);
   }, []);
 
   const date = selectedMovie.release_date;
@@ -67,7 +69,22 @@ export const Movie = () => {
       return res.name;
     });
 
-  console.log(genresMovie);
+  const converter = (minutos) => {
+    const horas = Math.floor(minutos / 60);
+    const min = minutos % 60;
+    const textoHoras = `00${horas}`.slice(-2);
+    const textoMinutos = `00${min}`.slice(-2);
+
+    // console.log(min);
+    return `${textoHoras}h ${textoMinutos}m`;
+  };
+
+  const average = `${selectedMovie.vote_average}` * 10;
+  const averagePercentage = `${average}`.slice(0, 2);
+
+  const crews = credtsCrew.slice(0, 6);
+
+  console.log("banana", crews);
 
   return (
     <Main>
@@ -82,26 +99,36 @@ export const Movie = () => {
           <DivDetalhes>
             <p>{tela}</p>
             <p>{data_brasileira}</p>
-            <div>
-              <Genre>{genresMovie}</Genre>
-            </div>
-            <p>duração</p>
+            <DivGenre key={id}>
+              {genresMovie &&
+                genresMovie.map((genre) => {
+                  return <Genre>{genre}</Genre>;
+                })}
+            </DivGenre>
+            <p>{converter(selectedMovie.runtime)}</p>
           </DivDetalhes>
-          <Avaliacao>avaliação</Avaliacao>
+          <Avaliacao>{averagePercentage}%</Avaliacao>
           <SinopseDiv>
             <SName>Sinopse</SName>
             <Sinopse>{selectedMovie.overview}</Sinopse>
           </SinopseDiv>
           <ActorsDiv>
-            <p>actors name</p>
-            <p>acror tipe</p>
+            {crews &&
+              crews.map((crew) => {
+                return (
+                  <div>
+                    <p>{crew.job}</p>
+                    <p>{crew.original_name}</p>
+                  </div>
+                );
+              })}
           </ActorsDiv>
         </DivInform>
       </SecondHeader>
       <div>
         <div>
           <h4>Elenco original</h4>
-          <div>acotrs</div>
+          <CardActor />
         </div>
         <div>
           <h4>Trailer</h4>
