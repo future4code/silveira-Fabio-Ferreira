@@ -11,12 +11,14 @@ export const GlobalState = ({ children }) => {
   const [releaseDate, setReleaseDate] = useState({});
   const [credtsCast, setCreditsCast] = useState([]);
   const [credtsCrew, setCreditsCrew] = useState([]);
+  const [videos, setVideos] = useState([]);
+  const [recomendations, setRecomendations] = useState([]);
 
   const getMovie = () => {
     axios
       .get(`${BASE_URL}/movie/popular${API_KEY}&language=pt-BR`)
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         setMovie(res.data.results);
       })
       .catch((err) => {
@@ -64,9 +66,33 @@ export const GlobalState = ({ children }) => {
     await axios
       .get(`${BASE_URL}/movie/${id}/credits${API_KEY}&language=pt-BR`)
       .then((res) => {
-        console.log("creditos", res.data.crew);
+        // console.log("creditos", res.data.crew);
         setCreditsCast(res.data.cast);
         setCreditsCrew(res.data.crew);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
+  const getVideos = async (id) => {
+    await axios
+      .get(`${BASE_URL}/movie/${id}/videos${API_KEY}&language=pt-BR`)
+      .then((res) => {
+        // console.log("videos", res.data.results);
+        setVideos(res.data.results);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
+  const getRecomendations = async (id) => {
+    await axios
+      .get(`${BASE_URL}/movie/${id}/recommendations${API_KEY}&language=pt-BR`)
+      .then((res) => {
+        console.log("recomendations", res.data.results);
+        setRecomendations(res.data.results);
       })
       .catch((err) => {
         console.log(err.response);
@@ -80,6 +106,8 @@ export const GlobalState = ({ children }) => {
     releaseDate,
     credtsCast,
     credtsCrew,
+    videos,
+    recomendations,
   };
   const requests = {
     getMovie,
@@ -87,6 +115,8 @@ export const GlobalState = ({ children }) => {
     getMovieById,
     getReleaseDate,
     getCredits,
+    getVideos,
+    getRecomendations,
   };
   const setters = {
     setMovie,
@@ -95,6 +125,8 @@ export const GlobalState = ({ children }) => {
     setReleaseDate,
     setCreditsCast,
     setCreditsCrew,
+    setRecomendations,
+    setVideos,
   };
 
   return (

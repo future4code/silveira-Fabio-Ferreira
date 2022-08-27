@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CardActor } from "../../Components/CardActors/CardActors";
+import { CardRecomendation } from "../../Components/CardRecomendation/CardRecomendation";
 import { IMAGE_PATH } from "../../Constants/url";
 import { useGlobal } from "../../Global/GlobalStateContext";
 import {
@@ -18,18 +19,42 @@ import {
   Sinopse,
   SinopseDiv,
   SName,
+  ElencoDiv,
+  SecondDiv,
+  DivCharacter,
+  DivTrailer,
+  CardTrailer,
+  DivRecomendations,
+  Recomendations,
+  DivRec,
+  DivBlank,
 } from "./styled";
 
 export const Movie = () => {
   const { states, requests } = useGlobal();
-  const { selectedMovie, releaseDate, credtsCast, credtsCrew } = states;
-  const { getMovieById, getReleaseDate, getCredits } = requests;
+  const {
+    selectedMovie,
+    releaseDate,
+    credtsCast,
+    credtsCrew,
+    videos,
+    recomendations,
+  } = states;
+  const {
+    getMovieById,
+    getReleaseDate,
+    getCredits,
+    getVideos,
+    getRecomendations,
+  } = requests;
   const { id } = useParams();
 
   useEffect(() => {
     getReleaseDate(id);
     getMovieById(id);
     getCredits(id);
+    getVideos(id);
+    getRecomendations(id);
   }, []);
 
   const date = selectedMovie.release_date;
@@ -83,8 +108,16 @@ export const Movie = () => {
   const averagePercentage = `${average}`.slice(0, 2);
 
   const crews = credtsCrew.slice(0, 6);
+  const cast = credtsCast.slice(0, 10);
+  const recomend = recomendations.slice(0, 6);
 
-  console.log("banana", crews);
+  const video =
+    videos &&
+    videos.map((vid) => {
+      return vid.key;
+    });
+
+  console.log("vamo ve", recomend);
 
   return (
     <Main>
@@ -125,24 +158,38 @@ export const Movie = () => {
           </ActorsDiv>
         </DivInform>
       </SecondHeader>
-      <div>
-        <div>
-          <h4>Elenco original</h4>
-          <CardActor />
-        </div>
-        <div>
-          <h4>Trailer</h4>
-          <div>trailer video</div>
-        </div>
-        <div>
-          <h4>Trailer</h4>
-          <div>trailer video</div>
-        </div>
-        <div>
-          <h4>recomendações</h4>
-          <div>card recomendações</div>
-        </div>
-      </div>
+      <SecondDiv>
+        <ElencoDiv>
+          <h2>Elenco original</h2>
+          <DivCharacter>
+            {cast &&
+              cast.map((item) => {
+                return <CardActor item={item} />;
+              })}
+          </DivCharacter>
+        </ElencoDiv>
+        <DivTrailer>
+          <h2>Trailer</h2>
+          <CardTrailer videoId={video[0]} />
+        </DivTrailer>
+        <DivRecomendations>
+          <h2>recomendações</h2>
+          <DivRec>
+            {recomend &&
+              recomend.map((item) => {
+                return <CardRecomendation item={item} />;
+              })}
+          </DivRec>
+        </DivRecomendations>
+      </SecondDiv>
+      <DivBlank>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </DivBlank>
     </Main>
   );
 };

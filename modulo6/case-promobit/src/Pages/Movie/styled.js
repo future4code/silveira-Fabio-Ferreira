@@ -1,3 +1,4 @@
+import YouTube from "react-youtube";
 import styled from "styled-components";
 
 export const Main = styled.div`
@@ -61,6 +62,7 @@ export const NameFilm = styled.p`
 export const DivDetalhes = styled.div`
   display: flex;
   justify-content: space-between;
+  max-width: 600px;
   padding-top: 25px;
 `;
 
@@ -89,4 +91,80 @@ export const Genre = styled.p`
 export const DivGenre = styled.div`
   display: flex;
   justify-content: space-evenly;
+`;
+
+export const SecondDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ElencoDiv = styled.div`
+  display: flex;
+  max-width: 1600px;
+  flex-direction: column;
+  padding-top: 7rem;
+  padding-left: 6.5rem;
+  h2 {
+    padding-left: 1.5rem;
+  }
+`;
+
+export const DivCharacter = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  scroll-padding-right: 10px;
+  overflow-x: auto;
+  padding-top: 25px;
+`;
+
+export const DivTrailer = styled.div`
+  display: flex;
+  max-width: 1600px;
+  flex-direction: column;
+  padding-top: 7rem;
+  padding-left: 7rem;
+  h2 {
+    padding-left: 1.5rem;
+  }
+`;
+
+export const CardTrailer = styled(YouTube)`
+  padding-top: 2rem;
+  padding-left: 1.5rem;
+`;
+
+export const DivRecomendations = styled.div`
+  display: flex;
+  max-width: 1600px;
+  flex-direction: column;
+  padding-top: 7rem;
+  padding-left: 7rem;
+  h2 {
+    padding-left: 1.5rem;
+  }
+`;
+
+export const DivRec = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  scroll-padding-right: 10px;
+  overflow-x: auto;
+  padding-top: 25px;
+`;
+
+export const Recomendations = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 16rem;
+  height: 22rem;
+  justify-content: space-between;
+`;
+
+export const DivBlank = styled.div`
+  position: static;
+  width: 100%;
+  height: 15rem;
+  background-color: white;
 `;
