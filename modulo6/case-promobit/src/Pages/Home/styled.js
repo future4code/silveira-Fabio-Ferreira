@@ -19,14 +19,20 @@ export const SecondHeader = styled.div`
 `;
 
 export const DivCards = styled.div`
-  max-width: 1300px;
+  /* max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
   height: 16vh;
   padding: 50px;
   display: grid;
   gap: 50px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 11vh;
 `;
 
 export const DivBotao = styled.div`
@@ -55,4 +61,16 @@ export const TextoIntro = styled.p`
   font-style: normal;
   line-height: normal;
   color: white;
+`;
+
+export const DivPagination = styled.div`
+  position: absolute;
+  bottom: 0;
+`;
+
+export const Films = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;

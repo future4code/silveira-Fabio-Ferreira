@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import GlobalStateContext from "./GlobalStateContext";
 import { API_KEY, BASE_URL } from "../Constants/url";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 export const GlobalState = ({ children }) => {
   const [movie, setMovie] = useState([]);
@@ -13,13 +12,14 @@ export const GlobalState = ({ children }) => {
   const [credtsCrew, setCreditsCrew] = useState([]);
   const [videos, setVideos] = useState([]);
   const [recomendations, setRecomendations] = useState([]);
+  const [offset, setOffset] = useState(1);
 
   const getMovie = () => {
     axios
-      .get(`${BASE_URL}/movie/popular${API_KEY}&language=pt-BR`)
+      .get(`${BASE_URL}/movie/popular${API_KEY}&language=pt-BR&page=${offset}`)
       .then((res) => {
-        console.log(res.data);
-        setMovie(res.data.results);
+        console.log("popular", res.data);
+        setMovie(res.data);
       })
       .catch((err) => {
         console.log(err.response);
@@ -91,7 +91,7 @@ export const GlobalState = ({ children }) => {
     await axios
       .get(`${BASE_URL}/movie/${id}/recommendations${API_KEY}&language=pt-BR`)
       .then((res) => {
-        console.log("recomendations", res.data.results);
+        // console.log("recomendations", res.data.results);
         setRecomendations(res.data.results);
       })
       .catch((err) => {
@@ -108,6 +108,7 @@ export const GlobalState = ({ children }) => {
     credtsCrew,
     videos,
     recomendations,
+    offset,
   };
   const requests = {
     getMovie,
@@ -127,6 +128,7 @@ export const GlobalState = ({ children }) => {
     setCreditsCrew,
     setRecomendations,
     setVideos,
+    setOffset,
   };
 
   return (

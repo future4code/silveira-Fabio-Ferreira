@@ -1,19 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BotaoGenero } from "../../Components/BotaoGenero/BotaoGenero";
 import { CardMovie } from "../../Components/CardMovie/CardMovie";
+import { Pagination } from "../../Components/Pagination/Pagination";
 import { useGlobal } from "../../Global/GlobalStateContext";
-import { DivBotao, DivCards, Main, SecondHeader, TextoIntro } from "./styled";
+import {
+  DivBotao,
+  DivCards,
+  DivPagination,
+  Main,
+  SecondHeader,
+  TextoIntro,
+  Films,
+} from "./styled";
 
 export const Home = () => {
-  const { states, requests } = useGlobal();
-  const { movie, genre } = states;
+  const { states, requests, setters } = useGlobal();
+  const { movie, genre, offset } = states;
   const { getMovie, getGenre } = requests;
+  const { setOffset } = setters;
+
+  const LIMIT = 12;
 
   useEffect(() => {
     getMovie();
     getGenre();
   }, []);
 
+  useEffect(() => {
+    getMovie();
+  }, [offset]);
+
+  console.log(movie);
   return (
     <Main>
       <SecondHeader>
@@ -28,12 +45,22 @@ export const Home = () => {
             })}
         </DivBotao>
       </SecondHeader>
-      <DivCards>
-        {movie &&
-          movie.map((item) => {
-            return <CardMovie item={item} />;
-          })}
-      </DivCards>
+      <Films>
+        <DivCards>
+          {movie.results &&
+            movie.results.map((item) => {
+              return <CardMovie item={item} />;
+            })}
+          {movie.total_results && (
+            <Pagination
+              limit={LIMIT}
+              total={movie.total_results}
+              offset={offset}
+              setOffset={setOffset}
+            />
+          )}
+        </DivCards>
+      </Films>
     </Main>
   );
 };
