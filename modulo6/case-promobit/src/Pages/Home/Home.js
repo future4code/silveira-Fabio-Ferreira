@@ -14,9 +14,9 @@ import {
 
 export const Home = () => {
   const { states, requests, setters } = useGlobal();
-  const { movie, genre, offset } = states;
+  const { movie, genre, offset, selectedGenre } = states;
   const { getMovie, getGenre } = requests;
-  const { setOffset } = setters;
+  const { setOffset, setSelectedGenre } = setters;
 
   const LIMIT = 12;
 
@@ -27,9 +27,9 @@ export const Home = () => {
 
   useEffect(() => {
     getMovie();
-  }, [offset]);
+  }, [offset, selectedGenre]);
 
-  console.log("aqwui", movie.results);
+  console.log("aqwui", selectedGenre);
   return (
     <Main>
       <SecondHeader>
@@ -40,7 +40,14 @@ export const Home = () => {
         <DivBotao>
           {genre &&
             genre.map((genero) => {
-              return <BotaoGenero key={genero.id} genero={genero} />;
+              return (
+                <BotaoGenero
+                  key={genero.id}
+                  genero={genero}
+                  setSelectedGenre={setSelectedGenre}
+                  selectedGenre={selectedGenre}
+                />
+              );
             })}
         </DivBotao>
       </SecondHeader>

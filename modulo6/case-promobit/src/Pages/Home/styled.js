@@ -13,7 +13,7 @@ export const SecondHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: purple;
+  background-color: #2d0c5e;
   flex-direction: column;
   height: 50%;
 `;

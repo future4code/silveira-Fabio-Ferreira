@@ -13,10 +13,13 @@ export const GlobalState = ({ children }) => {
   const [videos, setVideos] = useState([]);
   const [recomendations, setRecomendations] = useState([]);
   const [offset, setOffset] = useState(1);
+  const [selectedGenre, setSelectedGenre] = useState(undefined);
 
   const getMovie = () => {
     axios
-      .get(`${BASE_URL}/movie/popular${API_KEY}&language=pt-BR&page=${offset}`)
+      .get(
+        `${BASE_URL}/movie/popular${API_KEY}&language=pt-BR&page=${offset}&with_genres=${selectedGenre}`
+      )
       .then((res) => {
         console.log("popular", res.data);
         setMovie(res.data);
@@ -109,6 +112,7 @@ export const GlobalState = ({ children }) => {
     videos,
     recomendations,
     offset,
+    selectedGenre,
   };
   const requests = {
     getMovie,
@@ -129,6 +133,7 @@ export const GlobalState = ({ children }) => {
     setRecomendations,
     setVideos,
     setOffset,
+    setSelectedGenre,
   };
 
   return (
