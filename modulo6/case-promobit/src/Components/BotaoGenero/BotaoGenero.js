@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonStyle, MainContainerButton } from "./styled";
+import { ButtonStyle } from "./styled";
 
 export const BotaoGenero = ({ genero }) => {
   return (

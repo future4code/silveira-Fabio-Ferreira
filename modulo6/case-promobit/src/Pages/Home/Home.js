@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BotaoGenero } from "../../Components/BotaoGenero/BotaoGenero";
 import { CardMovie } from "../../Components/CardMovie/CardMovie";
 import { Pagination } from "../../Components/Pagination/Pagination";
@@ -6,7 +6,6 @@ import { useGlobal } from "../../Global/GlobalStateContext";
 import {
   DivBotao,
   DivCards,
-  DivPagination,
   Main,
   SecondHeader,
   TextoIntro,
@@ -30,7 +29,7 @@ export const Home = () => {
     getMovie();
   }, [offset]);
 
-  console.log(movie);
+  console.log("aqwui", movie.results);
   return (
     <Main>
       <SecondHeader>
@@ -41,7 +40,7 @@ export const Home = () => {
         <DivBotao>
           {genre &&
             genre.map((genero) => {
-              return <BotaoGenero genero={genero} />;
+              return <BotaoGenero key={genero.id} genero={genero} />;
             })}
         </DivBotao>
       </SecondHeader>
@@ -49,7 +48,7 @@ export const Home = () => {
         <DivCards>
           {movie.results &&
             movie.results.map((item) => {
-              return <CardMovie item={item} />;
+              return <CardMovie key={item.id} item={item} />;
             })}
           {movie.total_results && (
             <Pagination

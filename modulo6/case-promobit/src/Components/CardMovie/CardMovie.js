@@ -1,9 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { IMAGE_PATH } from "../../Constants/url";
-import { useGlobal } from "../../Global/GlobalStateContext";
 import { goToMovie } from "../../Routes/coordinator";
-import { MainCard, MovieImage } from "./styled";
+import { MainCard, MovieImage, Description } from "./styled";
 
 export const CardMovie = ({ item }) => {
   const navigate = useNavigate();
@@ -20,10 +19,10 @@ export const CardMovie = ({ item }) => {
       {item.poster_path ? (
         <MovieImage src={`${IMAGE_PATH}${item.poster_path}`} />
       ) : null}
-      <div>
+      <Description>
         <p>{item.title}</p>
         <p>{data_brasileira}</p>
-      </div>
+      </Description>
     </MainCard>
   );
 };

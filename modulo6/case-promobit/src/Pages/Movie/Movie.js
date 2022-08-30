@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CardActor } from "../../Components/CardActors/CardActors";
 import { CardRecomendation } from "../../Components/CardRecomendation/CardRecomendation";
@@ -25,7 +25,6 @@ import {
   DivTrailer,
   CardTrailer,
   DivRecomendations,
-  Recomendations,
   DivRec,
   DivBlank,
 } from "./styled";
@@ -73,6 +72,8 @@ export const Movie = () => {
     results.filter((result) => {
       if (result.iso_3166_1 === "BR") {
         return result.release_dates;
+      } else {
+        return null;
       }
     });
 

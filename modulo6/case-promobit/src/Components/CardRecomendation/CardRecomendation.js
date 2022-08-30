@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { IMAGE_PATH } from "../../Constants/url";
 import { goToMovie } from "../../Routes/coordinator";
 import { MainCard, MovieImage } from "./styled";
