@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import YouTube from "react-youtube";
 import { CardActor } from "../../Components/CardActors/CardActors";
 import { CardRecomendation } from "../../Components/CardRecomendation/CardRecomendation";
+import { Header } from "../../Components/Header/Header";
+import { CircularDeterminate } from "../../Components/IconAverage/IconAverage";
+import { ResponsivePlayer } from "../../Components/Player/ResponsivePlayer/ResponsivePlayer";
 import { IMAGE_PATH } from "../../Constants/url";
 import { useGlobal } from "../../Global/GlobalStateContext";
 import {
@@ -27,6 +31,7 @@ import {
   DivRecomendations,
   DivRec,
   DivBlank,
+  AverageVote,
 } from "./styled";
 
 export const Movie = () => {
@@ -47,6 +52,14 @@ export const Movie = () => {
     getRecomendations,
   } = requests;
   const { id } = useParams();
+
+  const [watchComplete, setWatchComplete] = useState(false);
+
+  const handleWatchComplete = ({ played }) => {
+    if (played >= 0.7 && !watchComplete) {
+      setWatchComplete(true);
+    }
+  };
 
   useEffect(() => {
     getReleaseDate(id);
@@ -118,10 +131,11 @@ export const Movie = () => {
       return vid.key;
     });
 
-  console.log("vamo ve", recomend);
+  console.log("vamo ve", videos);
 
   return (
     <Main>
+      <Header />
       <SecondHeader>
         <DivImg>
           <ImgStyled src={`${IMAGE_PATH}${selectedMovie.poster_path}`} />
@@ -141,7 +155,9 @@ export const Movie = () => {
             </DivGenre>
             <p>{converter(selectedMovie.runtime)}</p>
           </DivDetalhes>
-          <Avaliacao>{averagePercentage}%</Avaliacao>
+          <AverageVote>
+            <CircularDeterminate averagePercentage={averagePercentage} />
+          </AverageVote>
           <SinopseDiv>
             <SName>Sinopse</SName>
             <Sinopse>{selectedMovie.overview}</Sinopse>
@@ -171,7 +187,7 @@ export const Movie = () => {
         </ElencoDiv>
         <DivTrailer>
           <h2>Trailer</h2>
-          <CardTrailer videoId={video[0]} />
+          <ResponsivePlayer video={video[0]} onProgress={handleWatchComplete} />
         </DivTrailer>
         <DivRecomendations>
           <h2>recomendações</h2>

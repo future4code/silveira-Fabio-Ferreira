@@ -15,24 +15,24 @@ export const SecondHeader = styled.div`
   justify-content: space-evenly;
   background-color: #2d0c5e;
   flex-direction: column;
-  height: 50%;
+  padding-bottom: 6vh;
+  padding-top: 5vh;
+  @media (max-width: 450px) {
+    font-size: 1.5rem;
+    padding-bottom: 37vh;
+  }
 `;
 
 export const DivCards = styled.div`
-  /* max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 16vh;
-  padding: 50px;
-  display: grid;
-  gap: 50px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-wrap: wrap;
   padding-left: 11vh;
+  @media (max-width: 450px) {
+    padding-left: 2.5vh;
+  }
 `;
 
 export const DivBotao = styled.div`
@@ -61,6 +61,13 @@ export const TextoIntro = styled.p`
   font-style: normal;
   line-height: normal;
   color: white;
+  padding-bottom: 10vh;
+  padding-top: 5vh;
+  @media (max-width: 450px) {
+    font-size: 1.5rem;
+
+    padding-bottom: 2vh;
+  }
 `;
 
 export const DivPagination = styled.div`

@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonPage, Pages } from "./styled";
+import { ButtonActive, ButtonPage, Pages } from "./styled";
 
 const MAX_ITEMS = 9;
 const MAX_LEFT = (MAX_ITEMS - 1) / 2;
@@ -18,11 +18,19 @@ export const Pagination = ({ limit, total, offset, setOffset }) => {
       </li>
       {Array.from({ length: Math.min(MAX_ITEMS, pages) })
         .map((_, index) => index + first)
-        .map((page) => (
-          <li key={page}>
-            <ButtonPage onClick={() => setOffset(page)}>{page}</ButtonPage>
-          </li>
-        ))}
+        .map((page) =>
+          current === page ? (
+            <li key={page}>
+              <ButtonActive onClick={() => setOffset(page)}>
+                {page}
+              </ButtonActive>
+            </li>
+          ) : (
+            <li key={page}>
+              <ButtonPage onClick={() => setOffset(page)}>{page}</ButtonPage>
+            </li>
+          )
+        )}
       <li>
         <button
           onClick={() => setOffset(current + 1)}

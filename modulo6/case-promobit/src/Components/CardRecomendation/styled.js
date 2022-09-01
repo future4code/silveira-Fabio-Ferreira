@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const MainCard = styled.div`
   padding-left: 15px;
+  @media (max-width: 450px) {
+    padding-right: 10px;
+    height: 40vh;
+  }
 `;
 
 export const MovieImage = styled.img`
@@ -9,6 +13,10 @@ export const MovieImage = styled.img`
   border-radius: 6px;
   :hover {
     cursor: pointer;
+  }
+  @media (max-width: 450px) {
+    height: 26vh;
+    width: 42vw;
   }
 `;
 

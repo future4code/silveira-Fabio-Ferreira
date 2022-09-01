@@ -8,6 +8,10 @@ export const Container = styled.div`
   margin-left: 15px;
   box-shadow: 5px 5px 5px gray;
   -webkit-box-shadow: 5px 5px 5px gray;
+  @media (max-width: 450px) {
+    width: 11rem;
+    height: 17rem;
+  }
 `;
 
 export const ImageActor = styled.img`
@@ -15,6 +19,10 @@ export const ImageActor = styled.img`
   width: 13rem;
   height: 16rem;
   padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+  @media (max-width: 450px) {
+    width: 9rem;
+    height: 12rem;
+  }
 `;
 
 export const Name = styled.p`

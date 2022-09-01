@@ -1,10 +1,9 @@
-import YouTube from "react-youtube";
 import styled from "styled-components";
 
 export const Main = styled.div`
   font-family: roboto;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -18,6 +17,11 @@ export const SecondHeader = styled.div`
   flex-direction: row;
   height: 60%;
   color: white;
+  padding-top: 4vh;
+  @media (max-width: 450px) {
+    height: 180vh;
+    flex-direction: column;
+  }
 `;
 
 export const SinopseDiv = styled.div`
@@ -27,6 +31,9 @@ export const SinopseDiv = styled.div`
 export const SName = styled.p`
   font-size: 1.5rem;
   font-weight: bold;
+  @media (max-width: 450px) {
+    margin: 0;
+  }
 `;
 
 export const Sinopse = styled.p`
@@ -39,12 +46,21 @@ export const Sinopse = styled.p`
   font-size: 1.2rem;
   font-style: normal;
   line-height: normal;
+  @media (max-width: 450px) {
+    padding-left: 0;
+  }
 `;
 
 export const ImgStyled = styled.img`
   border-radius: 10px;
   width: 22rem;
   height: 31rem;
+  @media (max-width: 450px) {
+    border-radius: 10px;
+    width: 18rem;
+    height: 25rem;
+    margin-left: 32px;
+  }
 `;
 
 export const DivImg = styled.div`
@@ -64,11 +80,23 @@ export const DivDetalhes = styled.div`
   justify-content: space-between;
   max-width: 600px;
   padding-top: 25px;
+  @media (max-width: 450px) {
+    flex-direction: column;
+    p:first-child {
+      padding-bottom: 8px;
+    }
+    p:nth-child(2) {
+      padding-bottom: 8px;
+    }
+  }
 `;
 
 export const DivInform = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 450px) {
+    margin-left: 14px;
+  }
 `;
 
 export const ActorsDiv = styled.div`
@@ -78,6 +106,15 @@ export const ActorsDiv = styled.div`
   div {
     padding: 10px;
   }
+  @media (max-width: 450px) {
+    text-align: left;
+    padding-right: 30px;
+    div {
+      p:first-child {
+        font-weight: bold;
+      }
+    }
+  }
 `;
 
 export const Avaliacao = styled.div`
@@ -85,12 +122,18 @@ export const Avaliacao = styled.div`
 `;
 
 export const Genre = styled.p`
-  padding-left: 15px;
+  padding-right: 15px;
+  @media (max-width: 450px) {
+    padding-right: 0;
+    margin-right: 8px;
+  }
 `;
 
 export const DivGenre = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  @media (max-width: 450px) {
+    max-width: 200px;
+  }
 `;
 
 export const SecondDiv = styled.div`
@@ -107,6 +150,9 @@ export const ElencoDiv = styled.div`
   h2 {
     padding-left: 1.5rem;
   }
+  @media (max-width: 450px) {
+    padding-left: 8px;
+  }
 `;
 
 export const DivCharacter = styled.nav`
@@ -119,19 +165,15 @@ export const DivCharacter = styled.nav`
 `;
 
 export const DivTrailer = styled.div`
-  display: flex;
-  max-width: 1600px;
-  flex-direction: column;
-  padding-top: 7rem;
-  padding-left: 7rem;
+  margin-top: 5rem;
+  margin-left: 7rem;
   h2 {
-    padding-left: 1.5rem;
+    padding-bottom: 1.5rem;
   }
-`;
-
-export const CardTrailer = styled(YouTube)`
-  padding-top: 2rem;
-  padding-left: 1.5rem;
+  @media (max-width: 450px) {
+    margin-top: 5rem;
+    margin-left: 20px;
+  }
 `;
 
 export const DivRecomendations = styled.div`
@@ -143,6 +185,10 @@ export const DivRecomendations = styled.div`
   h2 {
     padding-left: 1.5rem;
   }
+  @media (max-width: 450px) {
+    margin-top: 3.5rem;
+    padding: 0;
+  }
 `;
 
 export const DivRec = styled.div`
@@ -152,6 +198,9 @@ export const DivRec = styled.div`
   scroll-padding-right: 10px;
   overflow-x: auto;
   padding-top: 25px;
+  @media (max-width: 450px) {
+    margin-left: 20px;
+  }
 `;
 
 export const Recomendations = styled.div`
@@ -167,4 +216,8 @@ export const DivBlank = styled.div`
   width: 100%;
   height: 15rem;
   background-color: white;
+`;
+
+export const AverageVote = styled.div`
+  margin-top: 25px;
 `;

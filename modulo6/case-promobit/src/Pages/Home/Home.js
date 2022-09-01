@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { BotaoGenero } from "../../Components/BotaoGenero/BotaoGenero";
 import { CardMovie } from "../../Components/CardMovie/CardMovie";
+import { Header } from "../../Components/Header/Header";
 import { Pagination } from "../../Components/Pagination/Pagination";
 import { useGlobal } from "../../Global/GlobalStateContext";
 import {
@@ -32,6 +33,7 @@ export const Home = () => {
   console.log("aqwui", selectedGenre);
   return (
     <Main>
+      <Header />
       <SecondHeader>
         <TextoIntro>
           {" "}

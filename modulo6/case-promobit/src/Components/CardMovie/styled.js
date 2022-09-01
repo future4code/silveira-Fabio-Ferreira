@@ -9,6 +9,11 @@ export const MovieImage = styled.img`
   :hover {
     cursor: pointer;
   }
+  @media (max-width: 450px) {
+    width: 11rem;
+    height: 14rem;
+    padding: 10px;
+  }
 `;
 
 export const NameData = styled.div`
@@ -27,5 +32,10 @@ export const Description = styled.div`
   text-align: center;
   p:first-child {
     max-width: 17rem;
+  }
+  @media (max-width: 450px) {
+    p:first-child {
+      max-width: 11rem;
+    }
   }
 `;
