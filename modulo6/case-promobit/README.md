@@ -1,6 +1,6 @@
                                                                       **Plataforma de filmes com React**
 
-LINK DO SITE: https://wise-worm.surge.sh/movie/766507
+LINK DO SITE: https://wise-worm.surge.sh/
 
 - [x] É possivel visualizar os filmes
 
