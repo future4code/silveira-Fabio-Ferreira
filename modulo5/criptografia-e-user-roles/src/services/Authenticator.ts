@@ -4,11 +4,13 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
+
 // EXEMPLO 2
 
 // Crie uma classe Authenticator, contendo os métodos generateToken e
 // getTokenData, para implementar, respectivamente, 
 // os métodos sign e verify do jwt.
+
 
 export default class Authenticator {
     generateToken = (payload: authenticationData) => {

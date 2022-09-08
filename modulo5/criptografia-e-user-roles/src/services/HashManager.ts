@@ -1,5 +1,6 @@
 import {compareSync, genSaltSync, hashSync} from "bcryptjs"
 
+
 export class HashManager{
     createHash = (plainText: string):string => {
         // 12 -> numero magico
@@ -11,6 +12,7 @@ export class HashManager{
         // const salt: string = "$2a$12$R76aG8inQRY9F3U2TUdoyS" 
         // gerando a hash aleatoria
         const cypherText: string = hashSync(plainText, salt)
+
 
         return cypherText
     } 

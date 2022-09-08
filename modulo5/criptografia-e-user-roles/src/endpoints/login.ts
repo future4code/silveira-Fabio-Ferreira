@@ -10,6 +10,7 @@ import { authenticationData, user } from "../types";
 export default async function login(req: Request, res: Response): Promise<void> {
     try {
 
+
         // Exemplo 4
         // Crie um endpoint de login de usuários. 
         // Os requisitos são:
@@ -18,8 +19,6 @@ export default async function login(req: Request, res: Response): Promise<void> 
         // Informar email e senha 
         // Devolver um token de autenticação, 
         // caso as credenciais sejam válidas, ou uma mensagem de erro, caso contrário 
-
-
         const {email, password} = req.body;
 
         if(!email || !password) {
@@ -27,7 +26,6 @@ export default async function login(req: Request, res: Response): Promise<void> 
         }
         
         const [user] = await connection("to_do_list_users").where({email})
-        // 2
 
         const hashManager: HashManager = new HashManager()
 

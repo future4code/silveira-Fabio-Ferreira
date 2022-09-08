@@ -10,15 +10,7 @@ export default async function createUser(
    res: Response
 ): Promise<void> {
    try {
-   // EXEMPLO 3
-   // Refatore o endpoint de cadastro para incluir um fluxo de autenticação. 
-   // Os requisitos são:
 
-   // O caminho deve ser "/user/signup"
-   //O usuário precisa escolher uma senha ao se cadastrar 
-   //(altere também a tabela de usuários)
-   // O usuário deve receber um identificador no padrão UUID
-   // A resposta deve ter um corpo contendo um token de autenticação
 
 
       const { name, nickname, email, password, role } = req.body
@@ -36,6 +28,7 @@ export default async function createUser(
          throw new Error('Email já cadastrado')
       }
 
+
       // agora utilizamos a classe IdGenerator() com o método
       //generateId() para recuperar um UUID de 32 caracteres
       
@@ -49,6 +42,7 @@ export default async function createUser(
 
       // ao inves de enviar o password como veio, 
       //estamos enviando a senhacriptografada para o banco de dados
+
       const newUser: user = { id, name, nickname, email,
        password: senhaCriptografada, role: role }
       
