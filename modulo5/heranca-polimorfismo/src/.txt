@@ -1,0 +1,81 @@
+Herança // olha o arquivo heranca
+
+
+Exercício 1
+
+a) Seria possível imprimir a senha (password) atrelada a essa instância?
+
+não a não ser que seja feito um getter chamando o password, mas como não tem não seria possivel
+
+b) Quantas vezes a mensagem "Chamando o construtor da classe User" foi impressa no terminal?
+
+a mensagem é imprimida uma vez pra cada instância
+
+
+
+Exercício 2
+
+a) Quantas vezes a mensagem "Chamando o construtor da classe Customer" foi impressa no terminal? 
+
+uma vez
+
+b) Quantas vezes a mensagem "Chamando o construtor da classe User" foi impressa no terminal? Por quê?
+
+uma vez, acredito que por ser o Pai da classe customer e o console.log ter sido colocado no constructor do pai fez
+com que fosse mandado pra o filho quando usado o 'super'
+
+
+
+Exercício 3
+
+a) Seria possível imprimir a senha (password) atrelada a essa instância? Por quê?
+
+sim, pois toda informação que foi herdada foi como publica 
+
+
+
+
+Polimorfismo // olha o arquivo polimorfismo
+
+Exercício 1
+
+a) Quais propriedades você conseguiu imprimir? Teve alguma que não foi possível? Por que isso aconteceu?
+
+tudo certo, deu uns paraneue ai porquê eu não tava chamando direito a função(esqueci os parenteses no final), mas tirando o errado deu tudo certo
+
+Exercício 2
+
+a) Mesmo sabendo que não é possível, tente criar uma instância dessa classe (ou seja: new Place(...)). Qual foi o erro que o Typescript gerou?
+
+Typescript diz claramente que não é possivel criar instância de uma classe abstrata
+
+b) Pense e responda: o que precisaríamos fazer para conseguir efetivamente criar uma instância dessa classe?
+
+transforma-la em uma classe comum, acredito eu, mas posso estar errado(e provavelmente estou)
+
+
+Exercício 5
+
+a) Quais as semelhanças dessa classe com a ResidentialClient?
+
+basicamente todas exeto  a resposta da proxima pergunta
+
+b) Quais as diferenças dessa classe com a ResidentialClient?,
+
+ao invez do cpf é cnpj que entra como variavel e ao invez de multiplicar pelo valor normal tem um descontinho de 30% e uma propriedade medindo o numero de andares
+
+
+
+Exercício 6
+
+a) De qual classe a `IndustrialClient` deve ser filha? Por quê?
+
+da Industry pra herdar as propriedades necessárias pra fazer o calculo e pegar outros dados
+
+b) Que interface a `IndustrialClient` implementa? Por quê?
+
+consumedEnergy pra fazer o calculo da conta de luz
+
+c) Nós pedimos para criar somente os getters dessa classe. Pense num motivo para isso: por que só os getters?
+
+porque todas as informações presentes na classe são sensiveis, não devem ser alteradas
