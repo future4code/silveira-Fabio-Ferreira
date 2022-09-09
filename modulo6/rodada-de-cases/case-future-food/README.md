@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+**PROJETO LABEFOOD**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-  link do surge:
+-  https://purring-joke.surge.sh/
 
-## Available Scripts
+- funcionalidades de login e cadastro
 
-In the project directory, you can run:
+- [x]  o usuário é capaz de criar uma conta
 
-### `npm start`
+![cadastro](https://user-images.githubusercontent.com/84349841/183542140-b47eaf66-b46d-4ae2-8984-5b4a2de6a0b0.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [x]  o usuário pode adicionar um endereço à conta cadastrada, caso não adicione não conseguirá acessar o feed e fazer pedidos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![cadastro endereco](https://user-images.githubusercontent.com/84349841/183542181-5c17e926-9e78-4db3-adc3-51e8792b3d20.png)
 
-### `npm test`
+- [x]  o usuário pode fazer login usando o email e senha cadastrados
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Sem título](https://user-images.githubusercontent.com/84349841/183541995-1c5ef9ed-c745-4e75-b0e3-1e4862b1037f.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Feed, filtros de busca
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [x]  o usuário tem acesso a uma listade restaurantes na página inicial
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![feed](https://user-images.githubusercontent.com/84349841/183542282-6d6523e6-e665-47db-8fa4-29199bbba83c.png)
 
-### `npm run eject`
+- [x]  o usuário é capaz de filtrar a lista de restaurantes por categoria
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![filtroCat](https://user-images.githubusercontent.com/84349841/183542320-785f52d8-0fb7-4ce8-b15a-29d448831895.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [x]  o usuário pode  buscar um restaurante pelo nome
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![filtroSearch](https://user-images.githubusercontent.com/84349841/183542347-c9f92295-aaa6-44de-a7c1-15108738296a.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- funcionalidades de pedidos
 
-## Learn More
+- [x]  o usuário pode ver os detalhes do restaurante com todos os pratos disponíveis
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![restaurant](https://user-images.githubusercontent.com/84349841/183542625-9e17fd6f-2a99-4263-bfc7-4272455afafd.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [x]  o usuário é capaz de adicionar um item ao carrinho selecionando a quantidade desejada
 
-### Code Splitting
+![addwithqtt](https://user-images.githubusercontent.com/84349841/183542436-68c706e3-687e-4a6d-b495-ddd86880a393.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [x]  o usuário pode remover o item do carrinho pela página do restaurante ou pelo próprio carrinho
 
-### Analyzing the Bundle Size
+![remove](https://user-images.githubusercontent.com/84349841/183542698-9a8814d3-f83a-4485-9eb0-9394236dfb0a.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [x]  o usuário pode finalizar a compra escolhendo entre as opções dinheiro ou cartão
 
-### Making a Progressive Web App
+![cart](https://user-images.githubusercontent.com/84349841/183542715-4168d8c2-9c14-48cd-9bfc-4eb1a9f3f76b.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- funcionalidades de edição e perfil
 
-### Advanced Configuration
+- [x]  o usuário pode visualizar os dados da conta pela página de perfil
+- [x]  o usuário é capaz de ver o histórico de compras na página de perfil
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![perfil](https://user-images.githubusercontent.com/84349841/183542786-c07e30c1-a9a6-48af-b188-e99b28bf5f96.png)
 
-### Deployment
+- [x]  o usuário pode editar os dados da conta pela opção de edição na  página  do perfil
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![editarPerfil](https://user-images.githubusercontent.com/84349841/183542896-6f8ddbd9-4906-4073-a360-bdcaf03a1c4c.png)
 
-### `npm run build` fails to minify
+- [x]  o usuário também pode editar o endereço pela opção de edição na pagina de perfil
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![editarEndereço](https://user-images.githubusercontent.com/84349841/183542934-88f2701e-0696-437c-a342-e469a6b67c10.png)
+
+- outras
+
+- [x]  o usuário também é capaz de visualizar o pedido em andamento pela pagina principal
+- [x]  o usuário pode voltar à página anterior com o botão de voltar no canto superior esquerdo
+- [x]  o usuário pode deslogar pelo botão do canto superior direiro
