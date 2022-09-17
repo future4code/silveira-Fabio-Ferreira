@@ -8,6 +8,17 @@ export default async function createUser(
    res: Response
 ): Promise<void> {
    try {
+
+      
+      // Exemplo 5
+      // Transforme o endpoint de editar usuário em um endpoint 
+      // autenticado. Para isso, ele deve:
+
+      //Receber um token pelo cabeçalho da requisição 
+      //(não será mais necessário passar o id por path parameters)
+      //Editar os dados do usuário, caso o token seja válido, 
+      //ou devolver um erro, caso contrário 
+
       const { name, nickname } = req.body
       const token = req.headers.authorization as string
 
@@ -31,6 +42,10 @@ export default async function createUser(
          res.statusMessage = "Token inválido"
          throw new Error()
       }
+
+
+      // verificar se o tipo do usuário é admin e se ele pode
+      // realizar ou não a edição
 
       if(tokenData.role !== "USER_ROLES.ADMIN") {
          res.statusCode = 403

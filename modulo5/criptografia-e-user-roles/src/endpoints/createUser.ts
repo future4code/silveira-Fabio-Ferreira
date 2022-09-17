@@ -12,6 +12,7 @@ export default async function createUser(
    try {
 
 
+
       const { name, nickname, email, password, role } = req.body
 
       if (!name || !nickname || !email || !password || !role) {
@@ -27,14 +28,21 @@ export default async function createUser(
          throw new Error('Email já cadastrado')
       }
 
+
+      // agora utilizamos a classe IdGenerator() com o método
+      //generateId() para recuperar um UUID de 32 caracteres
       
       const id: string = new IdGenerator().generateId()
       
+      // criou uma instancia da classe HashManager
       const hashManager: HashManager = new HashManager()
 
+      // chamamos o método createHash para criptografar o nosso password
       const senhaCriptografada = hashManager.createHash(password)
 
-     
+      // ao inves de enviar o password como veio, 
+      //estamos enviando a senhacriptografada para o banco de dados
+
       const newUser: user = { id, name, nickname, email,
        password: senhaCriptografada, role: role }
       
